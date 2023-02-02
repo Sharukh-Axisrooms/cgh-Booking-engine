@@ -1,0 +1,323 @@
+.wrapper {
+  margin-bottom: 15px;
+  border-bottom: 2px solid #333;
+  border: 1px dashed #aaa;
+  border-radius: 2px;
+  background: #f8f5f4;
+}
+
+.property-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+.property-image-col {
+  width: fit-content;
+  padding: 10px;
+  padding-right: 0px;
+}
+
+.property-image-col img {
+  width: 200px;
+  border-radius: 5px;
+  height: 100%;
+  max-height: 220px;
+  min-height: 160px;
+  object-fit: cover;
+  margin-top: -0.5px;
+}
+
+.property-text-col {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/*  */
+
+.package-title {
+  text-align: left;
+  color: #000;
+  margin-bottom: 4px;
+  font-size: 16px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.higlight-points {
+  margin-bottom: 6px;
+  text-transform: capitalize;
+  font-weight: 400;
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  text-align: left;
+  color: #000;
+}
+
+.tabs-block {
+  padding: 15px;
+}
+
+.room-list-heading {
+  text-align: left;
+  color: #000;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  font-weight: 500;
+  margin-top: 4px;
+  font-size: 14px;
+}
+
+.description {
+  font-weight: 300;
+  text-align: left;
+  color: #000;
+  margin-bottom: 8px;
+}
+
+.map-text {
+  color: cornflowerblue;
+  margin-left: 5px;
+}
+
+.icon-row {
+  position: relative;
+  height: 0px;
+}
+
+.icon-wrapper {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1.5px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  cursor: pointer;
+  transition: All 0.5s ease;
+  -webkit-transition: All 0.5s ease;
+  -moz-transition: All 0.5s ease;
+  -ms-transition: All 0.5s ease;
+  -o-transition: All 0.5s ease;
+  position: absolute;
+  top: 25px;
+  left: calc(50% - 20px);
+  background: black;
+  color: white;
+}
+
+.icon-wrapper i {
+  font-size: 18px;
+  padding-top: 6px;
+}
+
+.icon-wrapper.invert {
+  transform: rotate(180deg);
+}
+
+.icon-wrapper:hover {
+  top: 10px;
+}
+
+/* Highlight Images */
+.highlight-images {
+  display: flex;
+  overflow: hidden;
+}
+
+.highlight-images img {
+  width: 200px;
+  height: 140px;
+  object-fit: cover;
+  margin: 5px;
+}
+
+.btn-main {
+  margin-top: 15px;
+}
+
+.style-x {
+  background: #eee;
+  margin: 5px;
+  padding: 5px 15px;
+  font-size: 13px;
+  border-radius: 4px;
+  color: #424242;
+  border: 1px solid;
+}
+
+.style-x .bi-door-open {
+  font-size: 14px;
+  margin-right: 0.25rem !important;
+}
+
+.higlight-points-row {
+  display: flex;
+  font-weight: 400;
+  margin: 0px;
+  flex-wrap: wrap;
+  margin-left: -5px;
+}
+
+.bi-star-fill {
+  color: #f49930;
+  margin-right: 2px;
+}
+
+@media (min-width: 768px) {
+  .highlight-images img:first-child {
+    margin-left: 0;
+  }
+}
+
+/* Tabs */
+.tabs {
+  margin: 0 auto 10px auto;
+  width: fit-content;
+}
+
+.tabs ul {
+  list-style-type: none;
+  padding-left: 0;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 10px;
+  justify-content: center;
+  align-items: flex-end;
+  flex-wrap: wrap;
+}
+
+.tabs ul li {
+  box-sizing: border-box;
+  flex: 1;
+  padding: 5px 6px;
+  text-align: center;
+  margin: 0 4px;
+  cursor: pointer;
+  border-bottom: 3px solid rgba(204, 204, 204, 0);
+}
+
+.tabs ul li:hover {
+  color: #ccc;
+}
+
+.tabs ul li.active {
+  border-bottom: 3px solid #000;
+  font-weight: 500;
+}
+
+/* Lowest Price */
+.highlight-btn {
+  padding: 10px;
+  border-radius: 4px;
+  box-shadow: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px dashed #aaa;
+  margin: 2.5px;
+  cursor: pointer;
+  background-color: white;
+}
+
+.highlight-btn .text-col-span {
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+}
+
+.highlight-btn .highlight-btn-type {
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.highlight-btn .highlight-btn-text {
+  font-size: 16px;
+  margin-right: 5px;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.deal-text-truncate {
+  width: 60px;
+  overflow: hidden;
+  display: inline-block;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.highlight-btn .view-more-span {
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.highlight-btn i {
+  font-size: 20px;
+  margin-left: 5px;
+}
+
+.highlight-btn:hover {
+  background-color: #f8f5f4;
+}
+
+.overview-title {
+  margin-bottom: 2px;
+}
+
+/* Deals */
+.deals-wrapper {
+  display: flex;
+}
+
+.deal-card {
+  padding: 0px;
+  background-color: white;
+  margin-top: 15px;
+  display: flex;
+  font-weight: 300;
+  text-align: left;
+  color: #000;
+  border-radius: 2px;
+  flex-direction: column;
+  margin: 10px;
+  min-width: 200px;
+  flex: 1;
+}
+
+.deal-title {
+  margin-bottom: 4px;
+  text-transform: capitalize;
+}
+
+.deal-room-section .deal-title {
+  font-weight: 500;
+}
+
+.deal-desc {
+  margin-bottom: 0px;
+}
+
+.deal-value {
+  margin-bottom: 0px;
+}
+
+.deal-room-section {
+  background-color: cadetblue;
+  color: white;
+  padding: 15px;
+}
+
+.deal-top-section {
+  background-color: darkcyan;
+  color: white;
+  padding: 15px;
+}
+
+.deal-bottom-section {
+  padding: 15px;
+}

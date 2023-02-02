@@ -1,0 +1,64 @@
+.wrapper {
+  padding: 20px;
+  border: 1px solid #222;
+  margin-bottom: 30px;
+}
+
+.package-image {
+  width: 100%;
+  height: auto;
+  max-height: 350px;
+  object-fit: cover;
+  margin-bottom: 20px;
+}
+
+.title {
+  font-family: "Adobe Caslon Pro";
+  font-weight: bold;
+  letter-spacing: 0.06em;
+  text-align: left;
+  color: #000;
+  margin: 14px 0 7px 0;
+  font-size: 16px;
+}
+
+.content-box {
+  margin-bottom: 30px;
+}
+
+.background-box {
+  background: #eee;
+  padding: 15px;
+  text-align: left;
+  margin-bottom: 30px;
+}
+
+.line-item {
+  border: 1px dashed black;
+  padding: 10px 15px;
+  text-align: left;
+  margin-bottom: 8px;
+  font-size: 15px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.item-value {
+  float: right;
+  white-space: nowrap;
+  margin-left: 10px;
+  min-width: 100px;
+  text-align: end;
+}
+
+.total {
+  margin: 25px 0 5px 0;
+}
+
+.grey-bg {
+  padding: 10px 15px;
+  margin-bottom: 0px;
+  background: #eee;
+  border: none;
+  border-bottom: 1px dashed #ccc;
+}

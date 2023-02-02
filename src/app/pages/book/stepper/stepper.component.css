@@ -1,0 +1,79 @@
+.stepper-section {
+  padding: 50px 15px 15px 15px;
+}
+
+.stepper-row {
+  display: flex;
+  width: 100%;
+  max-width: 650px;
+  margin: auto;
+  justify-content: space-between;
+  position: relative;
+}
+
+.stepper-block {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 1;
+}
+
+.stepper-icon {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stepper-block.active .stepper-icon {
+  background: #eae3d1;
+}
+
+.stepper-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: #666;
+  border: 4px solid white;
+}
+
+.stepper-block.active .stepper-dot {
+  border: 4px solid #eae3d1;
+}
+
+.stepper-text {
+  font-family: "Adobe Caslon Pro";
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  text-align: left;
+  color: #000;
+  margin-top: 20px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.filler-line {
+  width: calc(100% - 165px);
+  position: absolute;
+  left: 90px;
+  top: 44px;
+  height: 2px;
+  background: #eae3d1;
+}
+
+@media (max-width: 420px) {
+  .filler-line {
+    width: calc(100% - 100px);
+  }
+
+  .stepper-block:not(.active) .stepper-text {
+    display: none;
+  }
+
+  .stepper-block:not(.active) .stepper-icon {
+    width: 20px;
+  }
+}

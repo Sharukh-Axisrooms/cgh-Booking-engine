@@ -1,0 +1,92 @@
+<div class="wrapper">
+    <p class="title text-center mb-4">BOOKING CONFIRMATION</p>
+    <img class="package-image" src="https://www.cghearth.com/uploads/banner/20170519203337PMbanneraerial1.jpg" alt="">
+
+    <p class="title mb-4">BOOKING CONFIRMATION #TXCS12123123</p>
+
+    <p class="title">PACKAGE SUMMARY</p>
+    <div class="content-box">
+        <p class="mb-2">A week long excursion through God’s Own Country, where you experience the best that Kerala
+            has to offer. You begin with a trip down history, exploring the heritage town of Fort Kochi.
+            Followed by a rendezvous with nature’s wonders in Thekkady</p>
+    </div>
+
+    <p class="title">CHECK-IN DETAILS</p>
+    <div class="content-box">
+        <p class="line-item">
+            <span class="item-desc">Check in</span>
+            <span class="item-value">{{cart?.cartItem?.checkIn}}</span>
+        </p>
+        <p class="line-item">
+            <span class="item-desc">Check out</span>
+            <span class="item-value">{{cart?.cartItem?.checkOut}}</span>
+        </p>
+        <p class="line-item">
+            <span class="item-desc">No of guests</span>
+            <span class="item-value">
+                {{cart?.cartItem?.noOfAdults + cart?.cartItem?.noOfChildren}} 
+                ( {{cart?.cartItem?.noOfAdults}} Adults and {{cart?.cartItem?.noOfChildren}} Children )</span>
+        </p> 
+    </div>
+
+    <p class="title">TARIFFS</p>
+    <div class="background-box">
+        <p class="title mt-2">ROOM</p>
+        <p class="line-item">
+            <span class="item-desc">Unit Rate x No of nights</span>
+            <span class="item-value">Rs 1000</span>
+        </p>
+    
+        <p class="title mt-3">ADDONS</p>
+        <p class="line-item">
+            <span class="item-desc">Addon service one</span>
+            <span class="item-value">Rs 1000</span>
+        </p>
+    
+        <p class="title mt-3">OTHERS</p>
+        <p class="line-item">
+            <span class="item-desc">Tax</span>
+            <span class="item-value">Rs 1000</span>
+        </p>
+
+        <p class="title total">TOTAL <span class="item-value">Rs {{cart?.cartItem?.totalAmount}}</span></p>
+    </div>
+
+
+    <p class="title">PERSONAL DETAILS</p>
+    <p class="line-item grey-bg">
+        <span class="item-desc">Full Name</span>
+        <span class="item-value">John Mathew</span>
+    </p>
+    <p class="line-item grey-bg">
+        <span class="item-desc">Phone</span>
+        <span class="item-value">00000000000</span>
+    </p>
+    <p class="line-item grey-bg"  style="border-bottom: none">
+        <span class="item-desc">Email</span>
+        <span class="item-value">asdsasdasd@c.com</span>
+    </p>
+
+    <p class="title">ADRRESS</p>
+    <p class="line-item grey-bg">
+        <span class="item-desc">Lane Address</span>
+        <span class="item-value">John Mathew</span>
+    </p>
+    <p class="line-item grey-bg">
+        <span class="item-desc">City</span>
+        <span class="item-value">00000000000</span>
+    </p>
+    <p class="line-item grey-bg">
+        <span class="item-desc">State</span>
+        <span class="item-value">asdsasdasd@c.com</span>
+    </p>
+    <p class="line-item grey-bg" style="border-bottom: none">
+        <span class="item-desc">Country</span>
+        <span class="item-value">asdsasdasd@c.com</span>
+    </p>
+
+    <!-- <div class="two-btn-row">
+            <button class="btn-main">Download</button>
+            <button class="btn-main">Continue Browsing</button>
+        </div> -->
+</div>

@@ -1,0 +1,29 @@
+<div class="addon-col">
+    <p class="title">ADDONS</p>
+    <ng-container *ngIf="addons.length > 0; else elseTemplate">
+        <ng-container *ngFor="let addon of addons; let first=first;">
+            <div class="row m-0 mt-2 addon-block">
+                <div class="addon-image-col">
+                    <img src="{{addon.policy_image_url}}" alt="">
+                </div>
+                <div class="addon-content-col">
+                    <p class="addon-title">{{addon.policy_name}}</p>
+                    <p class="addon-desc">{{addon.policy_description}}</p>
+                    <p class="addon-price">{{addon.currency}} {{addon.cost}} {{addon.policy_type_name}}</p>
+                </div>
+                <div class="btn-col">
+                    <button class="btn-main" (click)="removeAddon(addon)">-</button>
+                    <span>{{getQty(addon.policy_id)}}</span>
+                    <button class="btn-main" (click)="addAddon(addon)">+</button>
+                </div>
+            </div>
+        </ng-container>
+    </ng-container>
+    <ng-template #elseTemplate>
+        <div class="no-content">
+            No addons available
+        </div>
+    </ng-template>
+    
+
+</div>

@@ -1,0 +1,61 @@
+<div class="room-details">
+    <div class="room-desc-col">
+        <div class="room-header">
+            <!-- <div class="room-header-image-col"  *ngIf="property.images && property.images[0]">
+                    <img src="../../../../assets/temp/images/room-1.jpg" alt="">
+                </div> -->
+            <div class="room-header-image-col">
+                <img src="../../../../assets/temp/images/room-1.jpg" alt="">
+            </div>
+            <div class="room-header-text-col">
+                <p class="room-title">Room: {{room.roomName}}</p>
+                <p *ngIf="room.description && room.description != ''"
+                    style="height: 80px; overflow: hidden; margin-bottom: 0;">{{room.description}}</p>
+                <div>
+                    <ng-container *ngIf="room.amenities?.length > 0">
+                        <p class="room-title mb-1">Amenities:</p>
+                        <p>
+                            <span *ngFor="let amenity of room.amenities; let last=last">
+                                {{amenity}}
+                                {{!last ? ', ' : ''}}
+                            </span>
+                        </p>
+                    </ng-container>
+                    <div class="higlight-points-row">
+                        <p class="higlight-point style-x">
+                            <i class="bi bi-door-open"></i>
+                            Max Adults: {{room.maxAdult}}
+                        </p>
+                        <p class="higlight-point style-x">
+                            <i class="bi bi-door-closed"></i>
+                            Max Children: {{room.maxChild}}
+                        </p>
+                        <p class="higlight-point style-x">
+                            <i class="bi bi-door-closed"></i>
+                            Max Occupancy: {{room.maxOccupancy}}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="room-col">
+        <p class="mb-1">
+            <span class="price-before">{{property.currency}} {{room.price.discounted ?
+                (room.price.actual | number : '1.2' ) : ''}}</span>
+        </p>
+        <p class="mb-0">
+            <span class="price">
+                {{property.currency}}
+                {{room.price.discounted ?
+                (room.price.discounted | number : '1.2' ):
+                (room.price.actual | number : '1.2' )}}
+            </span>
+        </p>
+        <p class="mb-0">
+            <span class="per-unit">including taxes and charges</span>
+        </p>
+        <div class="spacer" style="flex: 1;"></div>
+        <button class="btn-main" (click)="onBookNow()">Book Now</button>
+    </div>
+</div>

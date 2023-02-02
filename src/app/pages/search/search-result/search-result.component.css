@@ -1,0 +1,187 @@
+
+
+.packages {
+  padding: 15px 0 30px 0;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #333;
+}
+
+.packages:last-child {
+  border-bottom: 0px;
+}
+
+.packages .title {
+  font-family: "Adobe Caslon Pro";
+  font-weight: bold;
+  letter-spacing: 0.06em;
+  text-align: left;
+  color: #000;
+  margin-bottom: 8px;
+}
+
+.packages .highlight {
+  font-family: "Adobe Caslon Pro";
+  font-weight: bold;
+  letter-spacing: 0.06em;
+  text-align: left;
+  color: #000;
+  margin-top: 30px;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
+.packages .description {
+  font-family: "Adobe Caslon Pro";
+  font-weight: normal;
+  letter-spacing: 0.1em;
+  text-align: left;
+  color: #000;
+}
+
+.packages .tariff-details {
+  padding: 20px 0 15px 0;
+  background-color: #eae3d1;
+  margin-bottom: 15px;
+  display: flex;
+  font-family: "Adobe Caslon Pro";
+  font-weight: normal;
+  letter-spacing: 0.75px;
+  text-align: left;
+  color: #000;
+}
+
+.packages .tariff-details .tariff-desc-col {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 0 20px;
+}
+
+.packages .tariff-details .tariff-title {
+  margin-bottom: 14px;
+}
+
+.packages .tariff-details ul li {
+  margin-bottom: 5px;
+}
+
+.packages .tariff-details .tariff-col {
+  display: flex;
+  flex-direction: column;
+  padding: 0 20px;
+  width: fit-content;
+  text-align: end;
+}
+
+.packages .tariff-details .tariff-col .price-before {
+  font-size: 14px;
+  color: #888;
+  text-decoration: line-through;
+  margin-bottom: 8px;
+}
+
+.packages .tariff-details .tariff-col .price {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 14px;
+  margin-bottom: 6px;
+}
+
+.packages .tariff-details .tariff-col .per-unit {
+  font-size: 12px;
+  color: #888;
+  margin-bottom: 2px;
+}
+
+.packages .tariff-details .tariff-col .price-terms {
+  margin-bottom: 0;
+}
+
+.packages .tariff-details .tariff-col .btn-main {
+  margin-top: 10px;
+}
+
+.packages .tariff-details .tariff-col .btn-main:hover {
+  background: #eae3d1;
+}
+
+.icon-row {
+  position: relative;
+  height: 40px;
+}
+
+.icon-wrapper {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1.5px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  cursor: pointer;
+  transition: All 0.5s ease;
+  -webkit-transition: All 0.5s ease;
+  -moz-transition: All 0.5s ease;
+  -ms-transition: All 0.5s ease;
+  -o-transition: All 0.5s ease;
+  position: absolute;
+  top: 0;
+  left: calc(50% - 20px);
+}
+
+.icon-wrapper i {
+  font-size: 18px;
+  padding-top: 6px;
+}
+
+.contents-wrapper .icon-wrapper.invert {
+  transform: rotate(180deg);
+}
+
+.icon-wrapper:hover {
+  top: 10px;
+}
+
+/* Highlight Images */
+.packages .highlight-images {
+  display: flex;
+  overflow: hidden;
+}
+
+.packages .highlight-images img {
+  width: 200px;
+  height: 140px;
+  object-fit: cover;
+  margin: 5px;
+}
+
+.btn-main {
+  display: inline-block;
+  font-family: ACaslonPro-Bold;
+  color: #fff;
+  background-color: #000;
+  text-decoration: none;
+  border: 2px solid #000;
+  text-transform: uppercase;
+  padding: 12px 24px 8px;
+  font-size: 12px;
+  line-height: 15px;
+}
+
+.btn-main:hover {
+  color: #000;
+  text-decoration: none;
+  background: #fff;
+}
+
+.packages .btn-main {
+  margin-top: 15px;
+}
+
+@media (min-width: 768px) {
+  .packages .highlight-images img:first-child {
+    margin-left: 0;
+  }
+}

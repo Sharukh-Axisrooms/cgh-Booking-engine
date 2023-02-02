@@ -1,0 +1,14 @@
+<div class="deals" *ngIf="deals$|async as deals">
+    <p class="main-title">PROMOTIONS</p>
+    <hr>
+    <div class="image-block-wrapper" *ngFor="let item of deals?.dealsList; let i=index; let last=last">
+        <div class="image-block" *ngIf="i < 5" (click)="goToDeals(i)" >
+            <img src="{{imagesArray[i]}}" alt="">
+            <div class="image-overlay">
+                <p class="deals-tagline">{{item.name}}</p>
+            </div>
+        </div>
+        <button class="btn-main" *ngIf="i===5" (click)="goToDeals()">View All</button>
+        <hr *ngIf="i === 5 || last">
+    </div>
+</div>

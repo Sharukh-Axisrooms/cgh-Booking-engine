@@ -1,0 +1,35 @@
+<section class="banner-section">
+    <div class="banner-heading">
+        Deals
+    </div>
+</section>
+
+<section class="deals-section container">
+    <div class="deals" *ngFor="let item of deals?.dealsList; let i=index" id="index-{{i}}">
+        <p class="deal-title">{{item.name}}</p>
+        <p>
+            <span class="line-title">Deal: </span>
+            <span class="line-detail">{{item.name}}</span>
+        </p>
+        <p>
+            <span class="line-title">Description: </span>
+            <span class="line-detail">{{item.description}}</span>
+        </p>
+        <p>
+            <span class="line-title">Offer available for stays between: </span>
+            <span class="line-detail">{{item.checkinDetails?.startDate}} to {{item.checkinDetails?.endDate}}</span>
+        </p>
+        <p>
+            <span class="line-title">For bookings made between: </span>
+            <span class="line-detail">{{item.bookingDetails?.startDate}} to {{item.bookingDetails?.endDate}} </span>
+        </p>
+        <div class="hotels-container">
+            <div class="hotel-row" *ngFor="let item of item.products;">
+                <p class="m-0 hotel-title">{{item.name}}</p>
+                <button class="btn-main">View Details</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<hr class="contents-section-seperator">

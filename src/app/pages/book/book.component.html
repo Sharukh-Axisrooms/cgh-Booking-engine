@@ -1,0 +1,61 @@
+<section class="banner-section"></section>
+
+<ng-container *ngIf="{bookingCart: bookingCart$ | async, 
+    currBookingItem: currBookingItem$ | async} as streams">
+
+    <ng-container *ngIf="streams.bookingCart?.loadingPaymentGateway; else elseBookingTemplate">
+        <div class="pg-alert-wrapper">
+            <div class="alert alert-secondary" role="alert">
+                Loading Payment Gateway
+                <div class="spinner-border m-3 mb-0" role="status">
+                    <span class="sr-only"></span>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+
+    <ng-template #elseBookingTemplate>
+        <ng-container *ngIf="streams.currBookingItem">
+            <app-stepper [stepper]="stepper"></app-stepper>
+
+            <section class="contents-section">
+                <div class="contents-wrapper" [ngStyle]="stepper === eStepper.confirmation ? 
+                    {'max-width': '1050px'} : {'max-width': '1150px'}">
+                    <div class="content-col">
+                        <div style="min-height: 480px;">
+                            <app-personal-details *ngIf="stepper === eStepper.personalDetails">
+                            </app-personal-details>
+
+                            <app-addons *ngIf="stepper === eStepper.addons">
+                            </app-addons>
+                        </div>
+
+                        <div class="btn-row">
+                            <button class="btn-main" (click)="goBack()">
+                                {{ stepper != eStepper.confirmation ? 'Back' : 'Download PDF'}}
+                            </button>
+                            <button class="btn-main" (click)="onNext()">
+                                {{ stepper != eStepper.confirmation ? 'Proceed' : 'Continue browsing'}}
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="cart-col" *ngIf="stepper != eStepper.confirmation">
+                        <p class="title">BOOKING DETAILS</p>
+                        <app-cart-box></app-cart-box>
+                    </div>
+                </div>
+            </section>
+        </ng-container>
+
+        <app-no-booking *ngIf="!streams.currBookingItem && 
+            !(streams.bookingCart?.bookingItems?.length ?? 0 > 0)">
+        </app-no-booking>
+
+        <app-ongoing-bookings *ngIf="!streams.currBookingItem && 
+            (streams.bookingCart?.bookingItems?.length ?? 0 > 0)">
+        </app-ongoing-bookings>
+    </ng-template>
+
+    <hr class="contents-section-seperator">
+</ng-container>

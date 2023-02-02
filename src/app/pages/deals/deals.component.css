@@ -1,0 +1,89 @@
+.banner-section {
+  background-image: url(https://www.cghearth.com/uploads/banner/20170519203337PMbanneraerial1.jpg);
+  background-position: center;
+  background-size: cover;
+  height: 80vh;
+  width: 100%;
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.banner-heading {
+  padding: 15px 25px 15px 35px;
+  margin-top: 20px;
+  border: 3px solid #fff;
+  color: #fff;
+  font-family: ITCKabelStd-Demi;
+  font-size: 45px;
+  text-transform: uppercase;
+  letter-spacing: 11px;
+  display: block;
+  line-height: 34px;
+}
+
+.deals-section {
+  padding: 60px 15px 15px 60px;
+}
+
+.deals {
+  background: #eae3d1;
+  margin: 25px 0;
+  padding: 20px 30px;
+  font-weight: 300;
+  letter-spacing: 0.6px;
+}
+
+.deal-title {
+  font-size: 26px;
+  text-align: center;
+  margin-bottom: 30px;
+  margin-top: 5px;
+  font-weight: 500;
+  font-family: ITCKabelStd-Demi;
+  border-bottom: 1px dashed;
+  padding-bottom: 15px;
+  text-transform: capitalize;
+}
+
+.line-title {
+  color: #000;
+}
+
+.line-detail {
+  font-weight: 500;
+}
+
+.hotels-container {
+  margin: 0px;
+}
+
+.hotel-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 20px 0;
+  padding: 15px;
+  border: 1px dashed;
+}
+
+.hotel-title {
+  font-weight: 500;
+}
+
+.contents-section-seperator {
+  max-width: 1000px;
+  margin: 50px auto 0 auto;
+}
+
+@media (min-width: 1400px) {
+  .container,
+  .container-lg,
+  .container-md,
+  .container-sm,
+  .container-xl,
+  .container-xxl {
+    max-width: 1000px;
+  }
+}

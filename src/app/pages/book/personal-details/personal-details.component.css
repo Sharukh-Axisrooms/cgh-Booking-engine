@@ -1,0 +1,42 @@
+.form-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-family: "Adobe Caslon Pro";
+  font-weight: bold;
+  letter-spacing: 0.06em;
+  text-align: left;
+  color: #000;
+  margin-bottom: 8px;
+  font-size: 16px;
+  padding-left: 5px;
+}
+
+.person-title {
+  width: fit-content;
+}
+
+.first-name,
+.last-name,
+.phone,
+.email,
+.address-input {
+  flex: 1;
+  margin: 5px;
+  height: 40px;
+}
+
+input:nth-child(odd) {
+  margin-left: 0px;
+}
+
+input:nth-child(even) {
+  margin-right: 0px;
+}
+
+.form-input-error {
+  border: 1px solid red;
+}

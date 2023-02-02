@@ -1,0 +1,96 @@
+/* Contents - Promotion */
+
+.main-title {
+  font-family: "Adobe Caslon Pro";
+  font-weight: bold;
+  font-size: 16px;
+  letter-spacing: 0.15em;
+  text-align: left;
+  color: #000;
+  margin-bottom: 0;
+}
+
+hr {
+  height: 1.5px;
+}
+
+.deals {
+  width: fit-content;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 0 25px;
+}
+
+.deals .main-title {
+  text-align: center;
+}
+
+.deals hr {
+  margin-bottom: 5px;
+}
+
+.deals .image-block {
+  position: relative;
+  margin: 10px 0;
+}
+
+.deals .image-block img {
+  width: 300px;
+  height: 200px;
+  object-fit: cover;
+}
+
+.deals .image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+}
+
+.deals .image-block-wrapper hr {
+  margin: 15px 0 5px 0;
+  height: 0px;
+  border: none;
+  border-bottom: 1.5px solid #333;
+  opacity: 1;
+}
+
+.image-block {
+  cursor: pointer;
+}
+
+.image-block .deals-tagline {
+  margin-bottom: 0;
+  text-transform: uppercase;
+}
+
+.image-block:hover .image-overlay {
+  background: none;
+  transition: All 0.5s ease;
+  -webkit-transition: All 0.5s ease;
+  -moz-transition: All 0.5s ease;
+  -ms-transition: All 0.5s ease;
+  -o-transition: All 0.5s ease;
+}
+
+.image-block:hover .deals-tagline {
+  text-decoration: underline;
+  transition: All 0.5s ease;
+  -webkit-transition: All 0.5s ease;
+  -moz-transition: All 0.5s ease;
+  -ms-transition: All 0.5s ease;
+  -o-transition: All 0.5s ease;
+}
+
+.btn-main {
+  width: 100%;
+}

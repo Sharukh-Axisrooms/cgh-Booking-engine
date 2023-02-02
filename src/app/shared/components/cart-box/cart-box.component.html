@@ -1,0 +1,32 @@
+<div class="cart-wrapper"  *ngIf="bookingItem$|async as bookingItem">
+    <p class="tariff-text">
+        <span class="tariff-price">Rs{{bookingItem.rooms[0]?.price?.actual}}</span>/night</p>
+    <div class="date-row">
+        <div class="box" style="border-right: 0px;">
+            <p class="label">Check-in</p>
+            <p class="date">{{bookingItem.checkIn}}</p>
+        </div>
+        <div class="box">
+            <p class="label">Check-out</p>
+            <p class="date">{{bookingItem.checkOut}}</p>
+        </div>
+    </div>
+    <p class="guest box">No of Guests - {{bookingItem.noOfAdults + bookingItem.noOfChildren}}</p>
+    <p class="line-item">
+        <span class="item-desc">{{bookingItem.rooms[0]?.price?.actual}} x {{bookingItem.noOfDays}} nights</span>
+        <span *ngIf="bookingItem.rooms[0]?.price?.actual">
+            <span class="item-amount" >Rs {{((bookingItem.rooms[0]?.price?.actual || 0) * bookingItem.noOfDays) | number: '1.2-2'}}</span>
+        </span>
+    </p>
+    <p class="line-item">
+        <span class="item-desc">Discount</span>
+        <span *ngIf="bookingItem.rooms[0]?.price?.actual">
+            <span class="item-amount" >Rs {{(((bookingItem.rooms[0]?.price?.actual || 0) - (bookingItem.rooms[0]?.price?.discounted || 0))* bookingItem.noOfDays) | number: '1.2-2'}}</span>
+        </span>
+    </p>
+    <p class="line-item">
+        <span class="item-desc">Tax</span>
+        <span class="item-amount">Rs {{bookingItem.rooms[0]?.price?.taxValue | number: '1.2-2'}}</span>
+    </p>
+    <p class="total">Total <span class="item-amount">Rs {{bookingItem.totalAmount | number: '1.2-2'}}</span></p>
+</div>

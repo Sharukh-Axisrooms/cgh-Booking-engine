@@ -1,0 +1,19 @@
+<div class="wrapper">
+    <div class="close-icon" (click)="closeDialog()">
+        <i class="bi bi-x"></i>
+    </div>
+    <p class="title">Our Recommendations</p>
+    <div class="image-block-wrapper" *ngFor="let item of data.searchResult?.Hotel_Details;">
+        <div class="image-block">
+            <img src="{{item.images[0]}}"
+                onError="this.src='../../../../assets/images/no-image-found.png',style.objectFit='contain'" 
+                alt="">
+            <div class="image-overlay">
+                <p class="promotions-tagline">STAY AT {{item.hotel_name}} @ 
+                    {{item.currency}}{{item.price.discounted ? item.price.discounted : item.price.actual}} PER NIGHT
+                </p>
+            </div>
+        </div>
+    </div>
+    <button class="btn-main mt-3" (click)="viewRecommendations()">View</button>
+</div>

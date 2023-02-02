@@ -1,0 +1,192 @@
+:host {
+    max-width: 100vw;
+}
+
+footer {
+    padding: 70px 0 70px;
+    text-align: center;
+    color: #000;
+    font-family: ACaslonPro-Regular;
+}
+
+footer:before, header:before, section:before, ul:before {
+    content: "";
+}
+
+nav {
+    font-family: ITCKabelStd-Book;
+    color: #501c11;
+    padding: 0 0 19px;
+}
+
+nav ul li {
+    padding: 0 10px;
+    display: inline-block;
+    letter-spacing: 4px;
+}
+
+nav a {
+    color: #000;
+    text-decoration: none;
+}
+
+dl, dt, li, ul {
+    margin: 0;
+    list-style: none;
+    padding: 0;
+}
+
+ul.social-share-footer {
+    max-width: 123px;
+    border: 1px solid #d9caab;
+    margin: 0 auto 30px;
+    padding: 0 0 0 37px;
+    position: relative;
+    width: fit-content;
+}
+
+ul.social-share-footer::before {
+    background: url(../../../../assets/images/share-icon-foot.png) no-repeat center center #d9caab;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 36px;
+    display: block;
+    content: "";
+    background-size: 25px;
+}
+
+nav ul.social-share-footer li {
+    float: left;
+    padding: 0;
+}
+
+ul.social-share-footer li.fb a {
+    background: url(../../../../assets/images/fb-foot.png) no-repeat center center;
+}
+
+ul.social-share-footer li.twitter a {
+    background: url(../../../../assets/images/twitter-foot.png) no-repeat center center;
+}
+
+ul.social-share-footer li a {
+    width: 42px;
+    height: 29px;
+    display: block;
+    transition: All .5s ease;
+    -webkit-transition: All .5s ease;
+    -moz-transition: All .5s ease;
+    -ms-transition: All .5s ease;
+    -o-transition: All .5s ease;
+}
+
+.clearfix:after, article:after, aside:after, div:after, footer:after, header:after, section:after, ul:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+footer ul.social {
+    padding: 0 0 14px;
+    margin-bottom: 10px;
+}
+
+footer ul.social li {
+    display: inline;
+    padding: 0 15px;
+}
+
+footer ul.social li img {
+    display: inline;
+    height: auto;
+}
+
+footer .signup {
+    max-width: 442px;
+    margin: 0 auto;
+    padding: 0 0 13px;
+}
+
+footer .signup input[type=submit] {
+    height: 50px;
+    border: 0;
+    width: 32%;
+    background: #000;
+    color: #fff;
+    font-family: ITCKabelStd-Book;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    border-left: 3px solid #fff;
+}
+
+footer .signup input[type=text] {
+    height: 50px;
+    border: 1px solid #000;
+    width: 68%;
+    color: #b09994;
+    text-align: center;
+    font-family: ACaslonPro-Regular;
+    font-size: 15px;
+    letter-spacing: 2px;
+    border-radius: 0;
+}
+
+.clearfix:before, article:before, aside:before, div:before, footer:before, header:before, section:before, ul:before {
+    content: "";
+}
+
+ol, ul {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+footer .signup input[type=submit], footer .signup input[type=text] {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    display: block;
+    float: left;
+}
+
+footer .copy {
+    font-size: 14px;
+    color: #000;
+    font-family: ITCKabelStd-Book;
+    padding: 7px 0 0;
+}
+
+@media (max-width: 1920px) {
+    footer {
+        padding: 151px 0 105px;
+    }
+
+    footer nav {
+        font-size: 10.5px;
+    }
+
+    footer ul.social li img {
+        max-width: 21px;
+    }
+
+    footer .signup input[type=submit], footer .signup input[type=text] {
+        height: 35px;
+        border-radius: 0;
+    }
+
+    footer .copy {
+        font-size: 16px;
+    }
+
+    footer ul.social li {
+        padding: 0 7px;
+    }
+}
+
+@media (max-width: 1600px) {
+    footer {
+        padding: 107px 0 70px;
+    }
+}
+

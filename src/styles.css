@@ -1,0 +1,123 @@
+/* Imports */
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+/* You can add global styles to this file, and also import other style files */
+html,
+body {
+  margin: 0px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #333;
+  background-color: #fff;
+}
+
+/* Variables */
+
+/* Fonts */
+@font-face {
+  font-family: ACaslonPro-Bold;
+  src: url(./assets/fonts/ACaslonPro-Bold.otf) format("opentype"),
+    url(./assets/fonts/ACaslonPro-Bold.woff) format("woff"),
+    url(./assets/fonts/ACaslonPro-Bold.ttf) format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: ACaslonPro-Regular;
+  src: url(./assets/fonts/ACaslonPro-Regular.otf) format("opentype"),
+    url(./assets/fonts/ACaslonPro-Regular.woff) format("woff"),
+    url(./assets/fonts/ACaslonPro-Regular.ttf) format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: ITCKabelStd-Book;
+  src: url(./assets/fonts/ITCKabelStd-Book.otf) format("opentype"),
+    url(./assets/fonts/ITCKabelStd-Book.woff) format("woff"),
+    url(./assets/fonts/ITCKabelStd-Book.ttf) format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: ITCKabelStd-Demi;
+  src: url(./assets/fonts/ITCKabelStd-Demi.otf) format("opentype"),
+    url(./assets/fonts/ITCKabelStd-Demi.woff) format("woff"),
+    url(./assets/fonts/ITCKabelStd-Demi.ttf) format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* General */
+hr {
+  border-color: #333;
+  opacity: 1;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.mat-dialog-custom-dimensions {
+  max-width: calc(100vw - 10px) !important;
+  max-height: calc(100vh - 10px) !important;
+}
+
+.mat-dialog-custom-dimensions .mat-dialog-container {
+  padding: 20px;
+  border-radius: 5px;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.autoCompleteClass {
+  margin-top: 14px !important;
+  border-radius: 4px;
+}
+
+.btn-main {
+  display: inline-block;
+  font-family: ACaslonPro-Bold;
+  color: #fff;
+  background-color: #000;
+  text-decoration: none;
+  border: 2px solid #000;
+  text-transform: uppercase;
+  padding: 12px 24px 8px;
+  font-size: 12px;
+  line-height: 15px;
+  min-width: 150px;
+}
+
+.btn-main:hover {
+  color: #000;
+  text-decoration: none;
+  background: #eae3d1;
+}
+
+.title {
+  font-family: "Adobe Caslon Pro";
+  font-weight: bold;
+  letter-spacing: 0.06em;
+  text-align: left;
+  color: #000;
+  margin-bottom: 8px;
+  font-size: 16px;
+  padding-left: 5px;
+}

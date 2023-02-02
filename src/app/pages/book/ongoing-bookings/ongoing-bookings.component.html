@@ -1,0 +1,7 @@
+<div class="wrapper" *ngIf="bookingCart$ | async as bookingCart">
+    <p class="title mb-4">MY BOOKING CART</p>
+    <div class="booking-item" *ngFor="let item of bookingCart.bookingItems; let i=index">
+        <app-package [property]="item.renderData" [searchId]="item.searchId" [index]="i"
+            [buttonActionType]="'ongoingComponent-proceed'"></app-package>
+    </div>
+</div>

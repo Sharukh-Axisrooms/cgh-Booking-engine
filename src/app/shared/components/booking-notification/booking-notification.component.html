@@ -1,0 +1,9 @@
+<div class="wrapper" *ngIf="bookingCart$|async as bookingCart">
+    <ng-container *ngIf="bookingCart.bookingItems?.length > 0">
+        <div class="notification-container shadow" (click)="goToBookingsPage()">
+            <span class="tooltip_text shadow">You have {{bookingCart.bookingItems?.length}} <br> incomplete
+                booking{{bookingCart.bookingItems?.length > 1 ? 's' : ''}}</span>
+            {{bookingCart.bookingItems?.length}}
+        </div>
+    </ng-container>
+</div>

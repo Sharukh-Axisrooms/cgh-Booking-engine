@@ -1,0 +1,91 @@
+/* BookingCart */
+.cart-wrapper {
+  background: #eae3d1;
+  width: 100%;
+  border-radius: 2px;
+  margin-top: 2px;
+  /* font-family: "Adobe Caslon Pro"; */
+  letter-spacing: 0.75px;
+  border: 1px solid rgb(221, 221, 221);
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: rgb(0 0 0 / 12%) 0px 6px 16px;
+}
+
+p {
+  margin-bottom: 8px;
+}
+
+.tariff-text {
+  margin: 0 0 16px 0;
+}
+
+.tariff-price {
+  font-size: 22px;
+  font-weight: 500;
+  margin-right: 2px;
+}
+
+.date-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.box {
+  border: 1px solid #666;
+  padding: 9px 15px;
+  height: 50px;
+  background: #eae3d1;
+  border-radius: 1px;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.box p {
+  margin-bottom: 0;
+}
+
+.box .label {
+  font-size: 10px;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.guest.box {
+  text-align: center;
+  margin-bottom: 24px;
+  border-top: 0px;
+  width: 100%;
+}
+
+.line-item {
+  margin-bottom: 12px;
+  font-size: 15px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.item-desc {
+  text-decoration: underline;
+}
+
+.item-amount {
+  float: right;
+  white-space: nowrap;
+  margin-left: 10px;
+  min-width: 100px;
+  text-align: end;
+}
+
+.total {
+  margin-bottom: -5px;
+  text-transform: uppercase;
+  padding: 20px 0 8px 0;
+  border-top: 1px solid #666;
+  margin-top: 24px;
+  font-weight: 500;
+  font-size: 15px;
+}

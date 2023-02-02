@@ -1,0 +1,45 @@
+<div class="packages" *ngFor="let item of searchResponse; let i=index">
+    <p class="title">UNFORGETTABLE KERALA</p>
+    <p class="description">7 nights package to experience the best of Kerala</p>
+
+    <p class="highlight">Get the best of Kerala in a week.</p>
+    <p class="description">A week long excursion through God’s Own Country, where you experience the best that 
+        Kerala has to offer. You begin with a trip down history, exploring the heritage town of 
+        Fort Kochi. Followed by a rendezvous with nature’s wonders in Thekkady, a serene back-
+        waters experience in Kumarakom and signing off with sun and sands on the beaches of 
+        Mararikulam. A lifetime of unforgettable experiences await.</p>
+
+    <p class="highlight">Starting from</p>
+    <ng-container  *ngFor="let item of [0,1,2,3]; let j=index">
+            <div class="tariff-details" *ngIf="i === expandTariffBlock || j === 0">
+                <div class="tariff-desc-col">
+                    <p class="tariff-title">Package name: King/Queen/Princess/Twin beds </p>
+                    <ul>
+                        <li>Free WiFi 24x7</li>
+                        <li>Breakfast included</li>
+                        <li>Swimming pool</li>
+                    </ul>
+                </div>
+                <div class="tariff-col">
+                    <p class="price-before">₹6,228</p>
+                    <p class="price">₹4,228</p>
+                    <p class="per-unit">per night</p>
+                    <p class="price-terms">Excluding tax</p>
+                    <button class="btn-main">Book Now</button>
+                </div>
+            </div>
+    </ng-container>
+
+    <div class="icon-row row m-0">
+        <div class="icon-wrapper" (click)="onTariffsExpandClick(i)" [ngClass]="{'invert': expandTariffBlock===i}">
+            <i class="bi bi-chevron-double-down"></i>
+        </div>
+    </div>
+
+    <p class="highlight">More Highlights</p>
+    <div class="highlight-images">
+        <img src="{{imagesArray[item]}}" alt="" *ngFor="let item of [0,1,2]"> 
+    </div>
+
+    <button class="btn-main">Read More</button>
+</div>
