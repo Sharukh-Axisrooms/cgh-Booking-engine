@@ -1,6 +1,184 @@
 <div class="addon-col">
     <p class="title">ADDONS</p>
-    <ng-container *ngIf="addons.length > 0; else elseTemplate">
+    <div class="row">
+        <div [ngClass]="openAddon == true ? 'col-6' : 'col-12'">
+            <div class="row">
+                <div class="col-6" [ngClass]="openAddon == true ? 'col-12' : 'col-6'">
+                    <div class="card">
+                        <img class="addon-img"
+                            src="https://res.cloudinary.com/simplotel/image/upload/x_0,y_0,w_900,h_507,r_0,c_crop,q_60,fl_progressive/w_450,f_auto,c_fit/barefoot-at-havelock/Stand_up_paddling_epenww_icgtsz_uuyxxy"
+                            alt="">
+                        <div style="padding:15px">
+                            <p class="addon-title">Stand Up Paddling</p>
+                            <p class="addon-desc">Stand Up Paddling is a fun way to spend time in the water and is
+                                relatively
+                                easier than surfing. As the name suggests, you stand on a board and use a paddle to
+                                propel
+                                yourself through the water. This activity is conducted off Beach No. 7 or Beach No. 3,
+                                depending
+                                on the sea condition. The minimum age is 12 years.</p>
+                            <a (click)="openAddon = true" style="font-size: 12px;cursor: pointer;color: #595b62;">View
+                                Details</a>
+                            <div class="row mt-1">
+                                <div class="col-4 d-flex justify-content-between align-items-around">
+                                    <button class="btn-main" (click)="add('minus')">-</button>
+                                    <span class="btn-num">{{num}}</span>
+                                    <button class="btn-main" (click)="add('add')">+</button>
+
+                                </div>
+                                <div class="col-8 addon-price-div">
+                                    <p class="addon-price">INR 2,000.00 x 2</p>
+                                    <p class="addon-price"> Total : INR 6000.00 </p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6" [ngClass]="openAddon == true ? 'col-12' : 'col-6'">
+                    <div class="card">
+                        <img class="addon-img"
+                            src="https://res.cloudinary.com/simplotel/image/upload/x_0,y_187,w_2000,h_1126,r_0,c_crop,q_60,fl_progressive/w_450,f_auto,c_fit/barefoot-at-havelock/snorkeler-with-fish_qpkkcb"
+                            alt="">
+                        <div style="padding:15px">
+                            <p class="addon-title">Snorkeling from the shore </p>
+                            <p class="addon-desc">Minimum age: 12 Maximum age: 59 Sign up to visit a natural aquarium.
+                                Conducted
+                                near the shore dive site called Nemo Reef, the activity lasts for a</p>
+                            <a (click)="openAddon = true" style="font-size: 12px;cursor: pointer;color: #595b62;">View
+                                Details</a>
+
+                            <div class="row mt-1">
+                                <div class="col-4 d-flex justify-content-between align-items-around">
+                                    <button class="btn-main" (click)="add('minus')">-</button>
+                                    <span class="btn-num">{{num}}</span>
+                                    <button class="btn-main" (click)="add('add')">+</button>
+
+                                </div>
+                                <div class="col-8  addon-price-div">
+                                    <p class="addon-price">INR 2,000.00 x 3</p>
+                                    <p class="addon-price"> Total : INR 6000.00 </p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6" [ngClass]="openAddon == true ? 'col-12' : 'col-6'">
+                    <div class="card">
+                        <img class="addon-img"
+                            src="https://res.cloudinary.com/simplotel/image/upload/x_0,y_0,w_900,h_507,r_0,c_crop,q_60,fl_progressive/w_450,f_auto,c_fit/barefoot-at-havelock/Stand_up_paddling_epenww_icgtsz_uuyxxy"
+                            alt="">
+                        <div style="padding:15px">
+                            <p class="addon-title">Stand Up Paddling</p>
+                            <p class="addon-desc">Stand Up Paddling is a fun way to spend time in the water and is
+                                relatively
+                                easier than surfing. As the name suggests, you stand on a board and use a paddle to
+                                propel
+                                yourself through the water. This activity is conducted off Beach No. 7 or Beach No. 3,
+                                depending
+                                on the sea condition. The minimum age is 12 years.</p>
+                            <a (click)="openAddon = true" style="font-size: 12px;cursor: pointer;color: #595b62;">View
+                                Details</a>
+
+                            <div class="row mt-1">
+                                <div class="col-4 d-flex justify-content-between align-items-around">
+                                    <button class="btn-main" (click)="add('minus')">-</button>
+                                    <span class="btn-num">{{num}}</span>
+                                    <button class="btn-main" (click)="add('add')">+</button>
+
+                                </div>
+                                <div class="col-8 addon-price-div">
+                                    <p class="addon-price">INR 2,000.00 x 2</p>
+                                    <p class="addon-price"> Total : INR 6000.00 </p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6" [ngClass]="openAddon == true ? 'col-12' : 'col-6'">
+                    <div class="card">
+                        <img class="addon-img"
+                            src="https://res.cloudinary.com/simplotel/image/upload/x_0,y_187,w_2000,h_1126,r_0,c_crop,q_60,fl_progressive/w_450,f_auto,c_fit/barefoot-at-havelock/snorkeler-with-fish_qpkkcb"
+                            alt="">
+                        <div style="padding:15px">
+                            <p class="addon-title">Snorkeling from the shore </p>
+                            <p class="addon-desc">Minimum age: 12 Maximum age: 59 Sign up to visit a natural aquarium.
+                                Conducted
+                                near the shore dive site called Nemo Reef, the activity lasts for a</p>
+                            <a (click)="openAddon = true" style="font-size: 12px;cursor: pointer;color: #595b62;">View
+                                Details</a>
+
+                            <div class="row mt-1">
+                                <div class="col-4 d-flex justify-content-between align-items-around">
+                                    <button class="btn-main" (click)="add('minus')">-</button>
+                                    <span class="btn-num">{{num}}</span>
+                                    <button class="btn-main" (click)="add('add')">+</button>
+
+                                </div>
+                                <div class="col-8  addon-price-div">
+                                    <p class="addon-price">INR 2,000.00 x 3</p>
+                                    <p class="addon-price"> Total : INR 6000.00 </p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6" *ngIf="openAddon == true">
+            <div class="card-wrapper">
+                <i class="bi bi-x-circle-fill" (click)="openAddon = false"></i>
+                <img class="w-100"
+                    src="https://res.cloudinary.com/simplotel/image/upload/x_0,y_0,w_900,h_507,r_0,c_crop,q_60,fl_progressive/w_450,f_auto,c_fit/barefoot-at-havelock/Stand_up_paddling_epenww_icgtsz_uuyxxy"
+                    alt="">
+                <div class="content">
+                    <p class="addon-title">test</p>
+                    <p class="desc">Stand Up Paddling is a fun way to spend time in the water and is relatively
+                        easier than surfing. As the name suggests, you stand on a board and use a paddle to propel
+                        yourself through the water. This activity is conducted off Beach No. 7 or Beach No. 3, depending
+                        on the sea condition. The minimum age is 12 years.</p>
+
+                </div>
+                <div class="content">
+                    <p class="addon-title">INR 2,700.00</p>
+                    <p class="addon-title">Duration: <span class="desc">1-2 hours </span> </p>
+
+                    <p class="addon-title">Inclusions:</p>
+                    <ul class="desc">
+                        <li>Instructor fee</li>
+                        <li>Paddle, board, and life jacket</li>
+                    </ul>
+                    <p class="addon-title">Exclusions:</p>
+                    <ul class="desc">
+                        <li>Food/snacks</li>
+                        <li>Photos/videos</li>
+                        <li>Transfers from and to the resort </li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- <div class="row m-0 mt-2 addon-block">
+        <div class="addon-image-col">
+            <img src="../../../../assets/images/no-image-found.png" alt="">
+        </div>
+        <div class="addon-content-col">
+            <p class="addon-title">test</p>
+            <p class="addon-desc">test tsett</p>
+            <p class="addon-price">INR 200 </p>
+        </div>
+        <div class="btn-col">
+            <button class="btn-main" >-</button>
+            <span>2</span>
+            <button class="btn-main" >+</button>
+        </div>
+    </div> -->
+    <!-- <ng-container *ngIf="addons.length > 0; else elseTemplate">
         <ng-container *ngFor="let addon of addons; let first=first;">
             <div class="row m-0 mt-2 addon-block">
                 <div class="addon-image-col">
@@ -23,7 +201,7 @@
         <div class="no-content">
             No addons available
         </div>
-    </ng-template>
-    
+    </ng-template> -->
+
 
 </div>

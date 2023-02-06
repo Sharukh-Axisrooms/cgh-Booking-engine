@@ -10,18 +10,35 @@ import { BookingService } from 'src/app/services/booking.service';
 export class AddonsComponent implements OnInit {
   addons: any = [];
   selectedAddons: any;
-
+  openAddon: boolean | undefined
+  num = 0
   constructor(
     private bookingService: BookingService,
     private spinner: NgxSpinnerService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
+    this.openAddon = false
     this.getAddons()
   }
 
+  add(e: string) {
+    if (e == "add") {
+      this.num += 1
+
+    } else if (e == "minus") {
+      this.num -= 1
+      if (this.num <= 0) {
+        this.num = 0;
+      }
+
+    }
+  }
+
+
   getAddons() {
-    this.spinner.show(); 
+
+    this.spinner.show();
     if (this.bookingService.currBookingItemValue) {
       this.bookingService
         .getAddons({
