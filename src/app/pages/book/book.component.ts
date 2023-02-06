@@ -82,21 +82,21 @@ export class BookComponent implements OnInit {
   }
 
   onNext() {
-    // if (this.stepper === this.eStepper.personalDetails) {
-      // if (this.personalDetailsComponent.personalDetailsForm.valid) {
-      //   this.personalDetailsForm =
-      //     this.personalDetailsComponent.personalDetailsForm;
+    if (this.stepper === this.eStepper.personalDetails) {
+      if (this.personalDetailsComponent.personalDetailsForm.valid) {
+        this.personalDetailsForm =
+          this.personalDetailsComponent.personalDetailsForm;
         this.stepper = this.eStepper.addons;
-      //   this.openRecommendationsDialog()
-      // } else {
-      //   this.personalDetailsComponent.personalDetailsForm.markAllAsTouched();
-      //   this.snackBar.open('Please complete the form', '', { duration: 2000 });
-      // }
-    // } else if (this.stepper === this.eStepper.addons) {
+        this.openRecommendationsDialog()
+      } else {
+        this.personalDetailsComponent.personalDetailsForm.markAllAsTouched();
+        this.snackBar.open('Please complete the form', '', { duration: 2000 });
+      }
+    } else if (this.stepper === this.eStepper.addons) {
       this.paymentService.createOrderAndMakePayment(
         this.bookingService.currBookingItemValue, this.personalDetailsForm.value
       );
-    // }
+    }
     window.scrollTo(0, 200);
   }
 
