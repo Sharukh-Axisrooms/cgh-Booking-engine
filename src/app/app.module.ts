@@ -37,6 +37,8 @@ import { OngoingBookingsComponent } from './pages/book/ongoing-bookings/ongoing-
 import { NoBookingComponent } from './pages/book/no-booking/no-booking.component';
 import { RoomComponent } from './shared/components/room/room.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { NgxPaginationModule } from "ngx-pagination";
+
 
 @NgModule({
   declarations: [
@@ -80,6 +82,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     ReactiveFormsModule,
     NgxSpinnerModule,
     MatSnackBarModule,
+    NgxPaginationModule
+
   ],
   providers: [],
   bootstrap: [AppComponent],
