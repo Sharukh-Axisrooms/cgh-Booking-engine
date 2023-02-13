@@ -37,6 +37,7 @@ export class BookingService {
       })
     );
 
+
     this.bookingCart$.pipe(tap((val) => (this.bookingCartValue = val))).subscribe();
     this.currBookingItem$.pipe(tap((val) => (this.currBookingItemValue = val))).subscribe();
     this.unsetPGLoaderFlag()
@@ -85,6 +86,8 @@ export class BookingService {
     return diff * price;
   }
 
+  // getTotalAmtWithAddon(){}
+
   getNoOfDays(checkIn: string, checkOut: string) {
     let startDate = moment(checkIn, 'DD.MM.YYYY');
     let endDate = moment(checkOut, 'DD.MM.YYYY');
@@ -107,11 +110,13 @@ export class BookingService {
     searchId: number,
     checkIn: string,
     checkOut: string,
-    paxInfo: any
+    paxInfo: any,
+    addons: any
   ) {
     let room: Room = {
       ratePlanId: selectedRoom.ratePlanId,
       roomId: selectedRoom.roomId,
+      currency: selectedRoom.currency,
       price: {
         actual: selectedRoom.price.actual,
         discounted: selectedRoom.price.discounted,
@@ -119,6 +124,8 @@ export class BookingService {
       },
     };
     let bookingItem: BookingItem = {
+      addons: [],
+      testPrice: 0,
       searchId: searchId,
       hotelId: property.hotel_id,
       cityId: property.address.cityId,
@@ -138,6 +145,7 @@ export class BookingService {
     this.initializeNewBooking(bookingItem);
   }
 
+
   proceedBookingFromOngoingList(index: number) {
     let bookingCart: BookingCart = {
       ...this.bookingCartValue,
@@ -152,12 +160,12 @@ export class BookingService {
 
   removeCurrentBookingItemFromList() {
     let index = this.bookingCartValue.currIndex
-  
-    if(index != undefined && index != null) {
-       let bookingCart = cloneDeep(this.bookingCartValue)
-       bookingCart.bookingItems.splice(index, 1)
-       bookingCart.currIndex = undefined
-       this.bookingCartReflect.set(
+
+    if (index != undefined && index != null) {
+      let bookingCart = cloneDeep(this.bookingCartValue)
+      bookingCart.bookingItems.splice(index, 1)
+      bookingCart.currIndex = undefined
+      this.bookingCartReflect.set(
         this.bookingCartReflect.HOOKS.BOOKING_CART,
         bookingCart
       );
@@ -175,15 +183,30 @@ export class BookingService {
     });
   }
 
+
   addAddon(addon: any) {
     let bookingItem = this.currBookingItemValue;
+
     if (bookingItem) {
       let addonFound;
+      bookingItem.testPrice = 0
+      console.log(bookingItem, "check")
+
       if (bookingItem.addons) {
         for (let index = 0; index < bookingItem.addons?.length || 0; index++) {
           if (addon['policy_id'] === bookingItem.addons[index]['policy_id']) {
-            bookingItem.addons[index]['qty'] += 1;
+            // bookingItem.addons[index]['qty'] += 1;
+            // bookingItem.addons[index]['totalCost']  =  parseInt(bookingItem.addons[index]['cost']) * bookingItem.addons[index]['qty']
             addonFound = true;
+            // bookingItem.testPrice += (parseInt(addon.cost) * addon.qty)
+
+            bookingItem.addons.forEach(e => {
+              if (bookingItem) {
+                bookingItem.testPrice += (e.cost * e.qty)
+              }
+
+            })
+            console.log(bookingItem, "hii")
             break;
           }
         }
@@ -194,6 +217,14 @@ export class BookingService {
           bookingItem.addons = [];
         }
         bookingItem.addons.push(addon);
+        // bookingItem.testPrice += (parseInt(addon.cost) * addon.qty)
+        bookingItem.addons.forEach(e => {
+          if (bookingItem) {
+            bookingItem.testPrice += (e.cost * e.qty)
+          }
+        })
+        console.log(bookingItem, "bye")
+
       }
 
       let bookingCart = this.bookingCartValue;
@@ -210,12 +241,26 @@ export class BookingService {
   removeAddon(addon: any) {
     let bookingItem = this.currBookingItemValue;
     if (bookingItem) {
+      bookingItem.testPrice = 0
+
       if (bookingItem.addons) {
         for (let index = 0; index < bookingItem?.addons?.length; index++) {
           if (addon['policy_id'] === bookingItem?.addons[index]['policy_id']) {
             if (bookingItem.addons[index].qty > 1) {
-              bookingItem.addons[index].qty -= 1;
-            } else if (bookingItem.addons[index].qty === 1) {
+              // bookingItem.addons[index].qty -= 1;
+              bookingItem.addons.forEach(e => {
+                if (bookingItem) {
+                  bookingItem.testPrice += (e.cost * e.qty)
+                }
+              })
+              bookingItem?.addons.splice(index, 1);
+
+            } else if (bookingItem.addons[index].qty === 1 || bookingItem.addons[index].qty === 0) {
+              bookingItem.addons.forEach(e => {
+                if (bookingItem) {
+                  bookingItem.testPrice += (e.cost * e.qty)
+                }
+              })
               bookingItem?.addons.splice(index, 1);
             }
             break;
@@ -245,11 +290,11 @@ export class BookingService {
     searchParams.countryId = bookingItem?.renderData.address.countryId;
     searchParams.checkIn = bookingItem?.checkOut;
 
-    let checkOut = moment(bookingItem?.checkOut, "DD-MM-YYYY") 
-    checkOut.add(2, 'days') 
+    let checkOut = moment(bookingItem?.checkOut, "DD-MM-YYYY")
+    checkOut.add(2, 'days')
 
     searchParams.checkOut = checkOut.format('DD/MM/YYYY');
-    searchParams.paxInfo = bookingItem?.paxInfo; 
+    searchParams.paxInfo = bookingItem?.paxInfo;
 
     return searchParams;
   }

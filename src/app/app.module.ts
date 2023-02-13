@@ -38,6 +38,7 @@ import { NoBookingComponent } from './pages/book/no-booking/no-booking.component
 import { RoomComponent } from './shared/components/room/room.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { NgxPaginationModule } from "ngx-pagination";
+import { ImagePopupComponent } from './shared/components/image-popup/image-popup.component';
 
 
 @NgModule({
@@ -60,7 +61,8 @@ import { NgxPaginationModule } from "ngx-pagination";
     PackageComponent,
     RoomComponent,
     DealsComponent,
-    BookingNotificationComponent
+    BookingNotificationComponent,
+    ImagePopupComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

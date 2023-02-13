@@ -3,6 +3,8 @@
         <div class="property-image-col" *ngIf="property.images && property.images[0]">
             <img src="{{property.images[0]}}"  alt="">
         </div>
+        <!-- <img src="{{property.images[0]}}"  alt=""> -->
+
 
         <div class="property-text-col">
             <p class="package-title">{{ property.hotel_name }}</p>
@@ -54,7 +56,7 @@
                     <span class="text-col-span">
                         <span class="highlight-btn-type">Our lowest price</span>
                         <span>
-                            <span class="highlight-btn-text">$1200</span>
+                            <span class="highlight-btn-text">{{property.currency}} {{lowestRoomPrice}}</span>
                             <span class="view-more-span">View more</span>
                         </span>
                     </span>

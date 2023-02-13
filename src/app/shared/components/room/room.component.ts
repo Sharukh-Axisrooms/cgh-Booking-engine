@@ -12,7 +12,10 @@ export class RoomComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log(this.room)
+    
+  }
 
   onBookNow() {
     this.btnEvent.emit('button clicked');

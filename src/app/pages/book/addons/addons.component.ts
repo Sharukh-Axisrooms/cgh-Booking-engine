@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { BookingService } from 'src/app/services/booking.service';
+import { ImagePopupComponent } from 'src/app/shared/components/image-popup/image-popup.component';
 
 @Component({
   selector: 'app-addons',
@@ -13,7 +15,6 @@ export class AddonsComponent implements OnInit {
   openAddon: boolean | undefined
   num = 0
   totalPrice: number | undefined;
-  indexOdAddon: any;
   addonDetail: any;
   config = {
     id: 'custom',
@@ -23,7 +24,8 @@ export class AddonsComponent implements OnInit {
 
   constructor(
     private bookingService: BookingService,
-    private spinner: NgxSpinnerService
+    private spinner: NgxSpinnerService,
+    private dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
@@ -44,19 +46,23 @@ export class AddonsComponent implements OnInit {
 
   }
 
-  calAmt(e: string, price: number, i: any) {
+  calAmt(item: any, i: any) {
+    // if (qty >= 1) {
+    //   this.addons[i].cost = this.addons[i].price * qty;
+    // }
 
-    if (e == "add") {
-      this.num += 1
-    } else if (e == "minus") {
-      this.num -= 1
-      if (this.num <= 0) {
-        this.num = 0;
-      }
-    }
-    this.indexOdAddon = i
-    this.totalPrice = price
-    this.totalPrice = price * this.num
+    // if (e == "add") {
+    //   this.num += 1
+    // } else if (e == "minus") {
+    //   this.num -= 1
+    //   if (this.num <= 0) {
+    //     this.num = 0;
+    //   }
+    // }
+    // this.totalPrice = price
+    // this.totalPrice = price * qty
+
+    this.addAddon(item,i)
 
   }
 
@@ -71,8 +77,9 @@ export class AddonsComponent implements OnInit {
         })
         .subscribe((res) => {
           this.addons = res['policies'];
-          this.addons.forEach((element: { count: number; }) => {
-            element.count = 0;
+          this.addons.forEach((element: { qty: number; count: boolean }) => {
+            element.qty = 0;
+            element.count = false
           });
           console.log(this.addons)
           this.spinner.hide();
@@ -80,11 +87,16 @@ export class AddonsComponent implements OnInit {
     }
   }
 
-  addAddon(addon: any) {
+  addAddon(addon: any, i: any) {
+    this.addons[i].count = true
     this.bookingService.addAddon(addon);
+    console.log(this.bookingService)
+   
   }
 
-  removeAddon(addon: any) {
+  removeAddon(addon: any, i: any) {
+    this.addons[i].count = false
+    this.addons[i].qty = 0
     this.bookingService.removeAddon(addon);
   }
 
@@ -103,4 +115,17 @@ export class AddonsComponent implements OnInit {
   getDetails(e: any) {
     this.addonDetail = e;
   }
+
+  expandImg(img: any) {
+    const dialogRef = this.dialog.open(ImagePopupComponent, {
+      data: img,
+      width: '600px',
+      height: '500px'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
+  }
+
 }

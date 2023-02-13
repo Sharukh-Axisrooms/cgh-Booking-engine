@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { async, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { BookingService } from 'src/app/services/booking.service';
 import { BookingItem } from '../../models/booking.model';
@@ -14,7 +14,10 @@ export class CartBoxComponent implements OnInit {
 
   constructor(private bookingService: BookingService) {
     this.bookingItem$ = this.bookingService.currBookingItem$
+   
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+   console.log(this.bookingItem$)
+  }
 }

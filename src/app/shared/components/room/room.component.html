@@ -21,6 +21,24 @@
                             </span>
                         </p>
                     </ng-container>
+                    <ng-container *ngIf="room.inclusions?.length > 0">
+                        <p class="room-title mb-1">Inclusions:</p>
+                        <p>
+                            <span *ngFor="let item of room.inclusions; let last=last">
+                                {{item}}
+                                {{!last ? ', ' : ''}}
+                            </span>
+                        </p>
+                    </ng-container>
+                    <ng-container *ngIf="room.cancellationPolicy?.length > 0">
+                        <p class="room-title mb-1">Cancellation Policy:</p>
+                        <p>
+                            <span *ngFor="let item of room.cancellationPolicy; let last=last">
+                                {{item}}
+                                {{!last ? ', ' : ''}}
+                            </span>
+                        </p>
+                    </ng-container>
                     <div class="higlight-points-row">
                         <p class="higlight-point style-x">
                             <i class="bi bi-door-open"></i>
@@ -33,6 +51,16 @@
                         <p class="higlight-point style-x">
                             <i class="bi bi-door-closed"></i>
                             Max Occupancy: {{room.maxOccupancy}}
+                        </p>
+                       
+                        <p class="higlight-point style-x">
+                            <i class="bi bi-egg-fried"></i>
+                            Meal Plan: {{room.mealPlan}}
+                        </p>
+                        <p class="higlight-point style-x">
+                            <i class="bi bi-tags"></i>
+                            Rate Plan: {{room.ratePlanName}} <br>
+                            (ID: {{room.roomId}})
                         </p>
                     </div>
                 </div>

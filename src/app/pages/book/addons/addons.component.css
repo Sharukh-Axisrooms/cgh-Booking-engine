@@ -191,3 +191,14 @@ hr {
   left: 94%;
   cursor:pointer;
 }
+
+
+.price-btn{
+  width: 100%;
+  margin-top: 10px;
+  background-color: black;
+  color: #fff;
+  border: none;
+  padding: 9px;
+  cursor: pointer;
+}
