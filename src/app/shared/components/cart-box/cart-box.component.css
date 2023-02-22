@@ -24,6 +24,7 @@ p {
   font-size: 22px;
   font-weight: 500;
   margin-right: 2px;
+  color: #724e37;
 }
 
 .date-row {
@@ -62,14 +63,14 @@ p {
 }
 
 .line-item {
-  margin-bottom: 12px;
+  margin-bottom: 6px;
   font-size: 15px;
   display: flex;
   justify-content: space-between;
 }
 
 .item-desc {
-  text-decoration: underline;
+  /* text-decoration: underline; */
 }
 
 .item-amount {

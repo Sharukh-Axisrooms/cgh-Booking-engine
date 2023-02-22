@@ -9,15 +9,13 @@
                             <div class="card">
                                 <img class="addon-img" [src]='item.policy_image_url' alt="">
                                 <div style="padding:15px">
-                                    <div class="row" >
+                                    <div class="row">
                                         <div class="col-12 d-flex justify-content-between">
                                             <p class="addon-title">{{item?.policy_name}}</p>
-                                            <ng-container *ngIf="item.count == false else removeaddon">
-                                                <i class="bi bi-plus-square-fill" (click)="addAddon(item, i);"></i>
-                                            </ng-container>
-                                            <ng-template #removeaddon >
-                                                <i class="bi bi-dash-square-fill" (click)="removeAddon(item, i);"></i>
-                                            </ng-template>
+                                            <i *ngIf="item.count == false" class="bi bi-plus-square-fill" style="cursor: pointer;"
+                                                (click)="addAddon(item, i);"></i>
+                                            <i *ngIf="item.count == true" class="bi bi-dash-square-fill" style="cursor: pointer;"
+                                                (click)="removeAddon(item, i);"></i>
 
 
                                         </div>

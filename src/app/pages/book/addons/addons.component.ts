@@ -88,15 +88,26 @@ export class AddonsComponent implements OnInit {
   }
 
   addAddon(addon: any, i: any) {
-    this.addons[i].count = true
+    this.addons.forEach((e: { policy_id: any; count: boolean; }) => {
+      if(e.policy_id == addon.policy_id){
+        e.count = true
+      }
+    });
+    // this.addons[i].count = true
     this.bookingService.addAddon(addon);
-    console.log(this.bookingService)
+    console.log(this.bookingService, i)
    
   }
 
   removeAddon(addon: any, i: any) {
-    this.addons[i].count = false
-    this.addons[i].qty = 0
+    this.addons.forEach((e: { policy_id: any; count: boolean;qty:any }) => {
+      if(e.policy_id == addon.policy_id){
+        e.count = false
+        e.qty = 0
+      }
+    });
+    // this.addons[i].count = false
+    // this.addons[i].qty = 0
     this.bookingService.removeAddon(addon);
   }
 

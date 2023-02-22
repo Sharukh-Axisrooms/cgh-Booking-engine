@@ -8,6 +8,7 @@ import { SearchService } from 'src/app/services/search.service';
 })
 export class RoomComponent implements OnInit {
   @Input() room: any;
+  @Input() id: number | any;
   @Input() property: any;
   @Output() btnEvent = new EventEmitter<any>();
 
