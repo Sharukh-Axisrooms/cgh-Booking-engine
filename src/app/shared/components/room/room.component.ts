@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { SearchService } from 'src/app/services/search.service';
 
 @Component({
   selector: 'app-room',
@@ -10,11 +11,14 @@ export class RoomComponent implements OnInit {
   @Input() property: any;
   @Output() btnEvent = new EventEmitter<any>();
 
-  constructor() {}
+  constructor(
+    private searchService: SearchService,
+
+  ) { }
 
   ngOnInit(): void {
-    console.log(this.room)
-    
+    console.log(this.room, this.property)
+
   }
 
   onBookNow() {

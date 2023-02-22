@@ -4,9 +4,32 @@
             <!-- <div class="room-header-image-col"  *ngIf="property.images && property.images[0]">
                     <img src="../../../../assets/temp/images/room-1.jpg" alt="">
                 </div> -->
-            <div class="room-header-image-col">
+               
+                <div class="room-header-image-col">
+                    <!-- <img [src]="item" alt=""> -->
+                    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner"  *ngFor="let item of room.images;let i=index">
+                          <div class="carousel-item active" *ngIf="i == 0">
+                            <img class="d-block w-100" [src]="item" >
+                          </div>
+                          <div class="carousel-item" *ngIf="i > 0">
+                            <img class="d-block w-100" [src]="item" >
+                          </div>
+                         
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                          <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                          <span class="sr-only">Next</span>
+                        </a>
+                      </div>
+                </div>
+            <!-- <div class="room-header-image-col">
                 <img src="../../../../assets/temp/images/room-1.jpg" alt="">
-            </div>
+            </div> -->
             <div class="room-header-text-col">
                 <p class="room-title">Room: {{room.roomName}}</p>
                 <p *ngIf="room.description && room.description != ''"
@@ -76,8 +99,8 @@
             <span class="price">
                 {{property.currency}}
                 {{room.price.discounted ?
-                (room.price.discounted | number : '1.2' ):
-                (room.price.actual | number : '1.2' )}}
+                (room.price.discounted+room.price.taxValue | number : '1.2' ):
+                (room.price.actual+room.price.taxValue | number : '1.2' )}}
             </span>
         </p>
         <p class="mb-0">

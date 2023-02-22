@@ -21,12 +21,21 @@ export class SearchService {
     });
   }
 
+  // private getRooms(params: any): Observable<any> {
+  //   return this.http.get<any>(`${BASE_URL}api/be/rooms`, {
+  //     params: params,
+  //     headers: getDefaultHeaders(),
+  //   });
+  // }
+
   private getRooms(params: any): Observable<any> {
-    return this.http.get<any>(`${BASE_URL}api/be/rooms`, {
+    return this.http.get<any>(`https://preprod3.axisrooms.com/api/be/rooms`, {
       params: params,
       headers: getDefaultHeaders(),
     });
   }
+
+ 
 
   searchRooms(params: any) {
       return this.getHotels(params).pipe(

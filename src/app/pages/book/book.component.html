@@ -23,11 +23,12 @@
                     {'max-width': '1050px'} : {'max-width': '1150px'}">
                     <div class="content-col">
                         <div style="min-height: 480px;">
+                            <app-addons *ngIf="stepper === eStepper.addons">
+                            </app-addons>
                             <app-personal-details *ngIf="stepper === eStepper.personalDetails">
                             </app-personal-details>
 
-                            <app-addons *ngIf="stepper === eStepper.addons">
-                            </app-addons>
+                         
                         </div>
 
                         <div class="btn-row">

@@ -19,5 +19,6 @@ export class CartBoxComponent implements OnInit {
 
   ngOnInit(): void {
    console.log(this.bookingItem$)
+   console.log(this.bookingItem$)
   }
 }
