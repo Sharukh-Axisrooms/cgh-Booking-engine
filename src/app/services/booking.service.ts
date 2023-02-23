@@ -125,7 +125,7 @@ export class BookingService {
     };
     let bookingItem: BookingItem = {
       addons: [],
-      testPrice: 0,
+      addonTotalPrice: 0,
       searchId: searchId,
       hotelId: property.hotel_id,
       cityId: property.address.cityId,
@@ -189,7 +189,7 @@ export class BookingService {
 
     if (bookingItem) {
       let addonFound;
-      bookingItem.testPrice = 0
+      bookingItem.addonTotalPrice = 0
       console.log(bookingItem, "check")
 
       if (bookingItem.addons) {
@@ -198,11 +198,11 @@ export class BookingService {
             // bookingItem.addons[index]['qty'] += 1;
             // bookingItem.addons[index]['totalCost']  =  parseInt(bookingItem.addons[index]['cost']) * bookingItem.addons[index]['qty']
             addonFound = true;
-            // bookingItem.testPrice += (parseInt(addon.cost) * addon.qty)
+            // bookingItem.addonTotalPrice += (parseInt(addon.cost) * addon.qty)
 
             bookingItem.addons.forEach(e => {
               if (bookingItem) {
-                bookingItem.testPrice += (e.cost * e.qty)
+                bookingItem.addonTotalPrice += (e.cost * e.qty)
               }
 
             })
@@ -217,10 +217,10 @@ export class BookingService {
           bookingItem.addons = [];
         }
         bookingItem.addons.push(addon);
-        // bookingItem.testPrice += (parseInt(addon.cost) * addon.qty)
+        // bookingItem.addonTotalPrice += (parseInt(addon.cost) * addon.qty)
         bookingItem.addons.forEach(e => {
           if (bookingItem) {
-            bookingItem.testPrice += (e.cost * e.qty)
+            bookingItem.addonTotalPrice += (e.cost * e.qty)
           }
         })
         console.log(bookingItem, "bye")
@@ -241,7 +241,7 @@ export class BookingService {
   removeAddon(addon: any) {
     let bookingItem = this.currBookingItemValue;
     if (bookingItem) {
-      bookingItem.testPrice = 0
+      bookingItem.addonTotalPrice = 0
 
       if (bookingItem.addons) {
         for (let index = 0; index < bookingItem?.addons?.length; index++) {
@@ -250,7 +250,7 @@ export class BookingService {
               // bookingItem.addons[index].qty -= 1;
               bookingItem.addons.forEach(e => {
                 if (bookingItem) {
-                  bookingItem.testPrice += (e.cost * e.qty)
+                  bookingItem.addonTotalPrice += (e.cost * e.qty)
                 }
               })
               bookingItem?.addons.splice(index, 1);
@@ -258,7 +258,7 @@ export class BookingService {
             } else if (bookingItem.addons[index].qty === 1 || bookingItem.addons[index].qty === 0) {
               bookingItem.addons.forEach(e => {
                 if (bookingItem) {
-                  bookingItem.testPrice += (e.cost * e.qty)
+                  bookingItem.addonTotalPrice += (e.cost * e.qty)
                 }
               })
               bookingItem?.addons.splice(index, 1);

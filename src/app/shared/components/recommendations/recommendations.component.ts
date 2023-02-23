@@ -18,6 +18,7 @@ export class RecommendationsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log(this.data)
   }
 
   closeDialog() {

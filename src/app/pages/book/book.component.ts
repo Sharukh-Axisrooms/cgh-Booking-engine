@@ -52,7 +52,7 @@ export class BookComponent implements OnInit {
 
   openRecommendationsDialog() {
     this.spinner.show();
-    this.searchService.searchRooms(this.bookingService.getRecommendationsSearchParams()).subscribe(res => {
+    this.searchService.getAllHotels().subscribe(res => {
       this.dialog.open(RecommendationsComponent, {
         width: '600px',
         panelClass: ['mat-dialog-custom-dimensions'],

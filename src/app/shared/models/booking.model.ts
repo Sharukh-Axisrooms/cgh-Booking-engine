@@ -6,7 +6,7 @@ export interface BookingCart {
 
 export interface BookingItem {
     addons?: Addon[],
-    testPrice:number,
+    addonTotalPrice:number,
     prevUrl?: string,
     searchId: number,
     hotelId: number,

@@ -86,7 +86,7 @@
         </div>
     </div>
     <div class="room-col">
-        <p class="mb-1">
+        <p class="mb-1" *ngIf="room.price.discounted ">
             <span class="price-before">{{property.currency}} {{room.price.discounted ?
                 (room.price.actual | number : '1.2' ) : ''}}</span>
         </p>
@@ -94,12 +94,12 @@
             <span class="price">
                 {{property.currency}}
                 {{room.price.discounted ?
-                (room.price.discounted+room.price.taxValue | number : '1.2' ):
-                (room.price.actual+room.price.taxValue | number : '1.2' )}}
+                ((room.price.actual-room.price.discounted)  | number : '1.2' ):
+                (room.price.actual | number : '1.2' )}}
             </span>
         </p>
         <p class="mb-0">
-            <span class="per-unit">including taxes and charges</span>
+            <span class="per-unit">plus taxes and charges</span>
         </p>
         <div class="spacer" style="flex: 1;"></div>
         <button class="btn-main" (click)="onBookNow()">Book Now</button>
