@@ -1,53 +1,61 @@
-<div class="cart-wrapper" *ngIf="bookingItem$|async as bookingItem">
-    <p class="tariff-text">
-        <span class="tariff-price">{{bookingItem.renderData.currency}}
-            {{bookingItem.rooms[0]?.price?.actual}}</span>/night
-    </p>
-    <div class="date-row">
-        <div class="box" style="border-right: 0px;">
-            <p class="label">Check-in</p>
-            <p class="date">{{bookingItem.checkIn}}</p>
+<ng-container>
+    <div class="cart-wrapper">
+        <div *ngFor="let bookingItem of bookingItems">
+            <p class="tariff-text">
+                <span class="tariff-price">{{bookingItem.renderData.currency}}
+                    {{bookingItem.rooms[0]?.price?.actual}}</span>/night
+            </p>
+            <div class="date-row">
+                <div class="box" style="border-right: 0px;">
+                    <p class="label">Check-in</p>
+                    <p class="date">{{bookingItem.checkIn}}</p>
+                </div>
+                <div class="box">
+                    <p class="label">Check-out</p>
+                    <p class="date">{{bookingItem.checkOut}}</p>
+                </div>
+            </div>
+            <p class="guest box">No of Guests - {{bookingItem.noOfAdults + bookingItem.noOfChildren}}</p>
+            <p class="line-item">
+                <span class="item-desc">{{bookingItem.rooms[0]?.price?.actual}} x {{bookingItem.noOfDays}} nights</span>
+                <span *ngIf="bookingItem.rooms[0]?.price?.actual">
+                    <span class="item-amount">{{bookingItem.renderData.currency}}
+                        {{((bookingItem.rooms[0]?.price?.actual || 0)
+                        * bookingItem.noOfDays) | number: '1.2-2'}}</span>
+                </span>
+            </p>
+            <p class="line-item" *ngIf="bookingItem.rooms[0]?.price?.discounted">
+                <span class="item-desc">Discount</span>
+                    <span class="item-amount">{{bookingItem.renderData.currency}}
+                        {{((bookingItem.rooms[0]?.price?.discounted || 0)* bookingItem.noOfDays) | number:
+                        '1.2-2'}}</span>
+            </p>
+            <p class="line-item">
+                <span class="item-desc">Tax</span>
+                <span class="item-amount">{{bookingItem.renderData.currency}} {{bookingItem.rooms[0]?.price?.taxValue |
+                    number:
+                    '1.2-2'}}</span>
+            </p>
+            <h6 *ngIf="bookingItem.addons?.length != 0" style="margin: 10px 0;    font-size: 20px;
+            color: #724e37;">Addons</h6>
+            <ng-container *ngFor="let item of bookingItem.addons">
+                <p class="line-item">
+                    <span class="item-desc">{{item.policy_name}} - {{item.qty}} Qty</span>
+                    <span class="item-amount">{{item.currency}} {{((item.cost || 0) * item.qty) | number:
+                        '1.2-2'}}</span>
+                </p>
+                <!-- <p class="total">Total <span class="item-amount">Rs {{bookingItem.totalAmount +  ((item.cost || 0) * item.qty) | number: '1.2-2'}}</span></p> -->
+
+            </ng-container>
+
+            
+            <hr>
         </div>
-        <div class="box">
-            <p class="label">Check-out</p>
-            <p class="date">{{bookingItem.checkOut}}</p>
-        </div>
+
+        <p class="total">Total <span class="item-amount">
+            {{getTotal(bookingItems)| number: '1.2-2'}}</span></p>
+
+
+
     </div>
-    <p class="guest box">No of Guests - {{bookingItem.noOfAdults + bookingItem.noOfChildren}}</p>
-    <p class="line-item">
-        <span class="item-desc">{{bookingItem.rooms[0]?.price?.actual}} x {{bookingItem.noOfDays}} nights</span>
-        <span *ngIf="bookingItem.rooms[0]?.price?.actual">
-            <span class="item-amount">{{bookingItem.renderData.currency}} {{((bookingItem.rooms[0]?.price?.actual || 0)
-                * bookingItem.noOfDays) | number: '1.2-2'}}</span>
-        </span>
-    </p>
-    <p class="line-item">
-        <span class="item-desc">Discount</span>
-        <span *ngIf="bookingItem.rooms[0]?.price?.actual">
-            <span class="item-amount">{{bookingItem.renderData.currency}} {{(((bookingItem.rooms[0]?.price?.actual || 0)
-                - (bookingItem.rooms[0]?.price?.discounted || 0))* bookingItem.noOfDays) | number: '1.2-2'}}</span>
-        </span>
-    </p>
-    <p class="line-item">
-        <span class="item-desc">Tax</span>
-        <span class="item-amount">{{bookingItem.renderData.currency}} {{bookingItem.rooms[0]?.price?.taxValue | number:
-            '1.2-2'}}</span>
-    </p>
-    <h6 *ngIf="bookingItem.addons?.length != 0" style="margin: 10px 0;    font-size: 20px;
-    color: #724e37;">Addons</h6>
-    <ng-container *ngFor="let item of bookingItem.addons">
-        <p class="line-item">
-            <span class="item-desc">{{item.policy_name}} - {{item.qty}} Qty</span>
-            <span class="item-amount">{{item.currency}} {{((item.cost || 0) * item.qty) | number: '1.2-2'}}</span>
-        </p>
-        <!-- <p class="total">Total <span class="item-amount">Rs {{bookingItem.totalAmount +  ((item.cost || 0) * item.qty) | number: '1.2-2'}}</span></p> -->
-
-    </ng-container>
-
-    <p class="total">Total <span class="item-amount">{{bookingItem.renderData.currency}} {{bookingItem.totalAmount +
-            bookingItem.addonTotalPrice| number: '1.2-2'}}</span></p>
-
-
-
-
-</div>
+</ng-container>

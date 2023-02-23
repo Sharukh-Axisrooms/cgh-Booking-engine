@@ -36,8 +36,8 @@ export class BookingService {
           : undefined;
       })
     );
-
-
+console.log("444444444444444444444444444")
+console.log( this.currBookingItem$)
     this.bookingCart$.pipe(tap((val) => (this.bookingCartValue = val))).subscribe();
     this.currBookingItem$.pipe(tap((val) => (this.currBookingItemValue = val))).subscribe();
     this.unsetPGLoaderFlag()
@@ -81,7 +81,7 @@ export class BookingService {
   getTotalAmount(checkIn: string, checkOut: string, room: any) {
     let diff = this.getNoOfDays(checkIn, checkOut);
     let price =
-      (room.price.discounted ? room.price.discounted : room.price.actual) +
+      (room.price.discounted ? (room.price.actual-room.price.discounted) : room.price.actual) +
       room.price.taxValue;
     return diff * price;
   }

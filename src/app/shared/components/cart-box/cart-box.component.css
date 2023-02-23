@@ -85,8 +85,8 @@ p {
   margin-bottom: -5px;
   text-transform: uppercase;
   padding: 20px 0 8px 0;
-  border-top: 1px solid #666;
-  margin-top: 24px;
+  /* border-top: 1px solid #666; */
+  /* margin-top: 14px; */
   font-weight: 500;
   font-size: 15px;
 }
