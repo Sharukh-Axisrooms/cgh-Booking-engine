@@ -18,6 +18,7 @@ export class PackageComponent implements OnInit, OnDestroy {
   _property: any;
   lowestRoomPrice: number | undefined;
   addons: any;
+  @Input() id:number | undefined
 
   @Input() set property(val) {
     this._property = val

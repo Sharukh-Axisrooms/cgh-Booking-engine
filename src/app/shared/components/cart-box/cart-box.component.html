@@ -1,6 +1,12 @@
 <ng-container>
     <div class="cart-wrapper">
-        <div *ngFor="let bookingItem of bookingItems">
+        <div *ngFor="let bookingItem of bookingItems;let i=index" style="position: relative;">
+            <i class="bi bi-x-circle-fill" (click)="remove(i)" style=" 
+            right: 0px;
+    top: 0px;
+    color: #724e37;
+    cursor: pointer;
+    position: absolute;"></i>
             <p class="tariff-text">
                 <span class="tariff-price">{{bookingItem.renderData.currency}}
                     {{bookingItem.rooms[0]?.price?.actual}}</span>/night
@@ -26,9 +32,9 @@
             </p>
             <p class="line-item" *ngIf="bookingItem.rooms[0]?.price?.discounted">
                 <span class="item-desc">Discount</span>
-                    <span class="item-amount">{{bookingItem.renderData.currency}}
-                        {{((bookingItem.rooms[0]?.price?.discounted || 0)* bookingItem.noOfDays) | number:
-                        '1.2-2'}}</span>
+                <span class="item-amount">{{bookingItem.renderData.currency}}
+                    {{((bookingItem.rooms[0]?.price?.discounted || 0)* bookingItem.noOfDays) | number:
+                    '1.2-2'}}</span>
             </p>
             <p class="line-item">
                 <span class="item-desc">Tax</span>
@@ -48,14 +54,21 @@
 
             </ng-container>
 
-            
+
             <hr>
         </div>
 
-        <p class="total">Total <span class="item-amount">
-            {{getTotal(bookingItems)| number: '1.2-2'}}</span></p>
+        <p class="total" *ngIf="bookingItems?.length != 0">Total <span class="item-amount">{{currency}}
+                {{getTotal(bookingItems)| number: '1.2-2'}}</span></p>
 
+        <!-- <app-no-booking class="w-100" *ngIf="bookingItems?.length == 0" (click)="gotoHomepage()">
+                </app-no-booking> -->
 
+        <div class="wrapper" *ngIf="bookingItems?.length == 0">
+            <div class="alert alert-secondary" role="alert">
+                You have not selected any room for booking!
+            </div>
+        </div>
 
     </div>
 </ng-container>

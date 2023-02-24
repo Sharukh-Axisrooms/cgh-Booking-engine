@@ -27,6 +27,9 @@ export class BookingService {
     this.bookingCart$ = this.bookingCartReflect.observe(
       this.bookingCartReflect.HOOKS.BOOKING_CART
     );
+    console.log(this.bookingCart$, this.bookingCartReflect.observe(
+      this.bookingCartReflect.HOOKS.BOOKING_CART
+    ))
     this.currBookingItem$ = this.bookingCart$.pipe(
       map((bookingCart) => {
         return bookingCart &&
@@ -158,9 +161,9 @@ console.log( this.currBookingItem$)
     );
   }
 
-  removeCurrentBookingItemFromList() {
-    let index = this.bookingCartValue.currIndex
-
+  removeCurrentBookingItemFromList(i:any) {
+    // let index = this.bookingCartValue.currIndex
+    let index =i
     if (index != undefined && index != null) {
       let bookingCart = cloneDeep(this.bookingCartValue)
       bookingCart.bookingItems.splice(index, 1)
@@ -170,6 +173,10 @@ console.log( this.currBookingItem$)
         bookingCart
       );
     }
+
+    this.router.routeReuseStrategy.shouldReuseRoute = () => true;
+
+
   }
 
   //

@@ -26,7 +26,7 @@
                 </a>
             </div>
             <div class="image-overlay">
-                <p class="promotions-tagline">STAY AT {{item.hotel_name}} @
+                <p class="promotions-tagline"  (click)="viewRecommendationsForSpecific(item.hotel_id)">  STAY AT {{item.hotel_name}} @
                     {{item.currency}}{{item.price.discounted ? ( item.price.actual-item.price.discounted) :
                     item.price.actual}} PER NIGHT
                 </p>
