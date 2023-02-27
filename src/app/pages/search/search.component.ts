@@ -248,7 +248,9 @@ export class SearchComponent implements OnInit, OnDestroy {
     }, 0);
   }
 
-  selectLocation(option: any) {
+    selectLocation(option: any) {
+      // this.searchForm.controls.status = 'VALID';
+      console.log(option,"@@@@@")
     if ((option.type = 'city')) {
       this.searchForm.controls.cityId.setValue(option.cityId);
     }
@@ -342,10 +344,16 @@ export class SearchComponent implements OnInit, OnDestroy {
     }
   }
 
+  
+  
   onSubmit() {
+    console.log(this.searchForm, this.searchForm.valid)
     this.searchForm.markAllAsTouched();
     this.showDropdown = this.dropdownType.none;
-    if (this.searchForm.valid) {
+    // if(      this.searchForm.controls.searchType.status== "VALID" ){
+    //   this.searchForm.valid
+    // }
+    if (this.searchForm.controls.searchType.status== "VALID") {
       let prevUrl = this.router.url.toString();
       let searchParams: any = this.getSearchParams();
       searchParams['searchType'] = this.searchForm.controls.searchType.value;

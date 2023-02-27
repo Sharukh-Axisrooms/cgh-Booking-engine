@@ -8,7 +8,8 @@
             <div class="carousel-inner">
                 <div class="carousel-item" *ngFor="let item of property.images;let i=index"
                     [ngClass]="i == 1 ? 'active' : ''" [id]="'slide'+ i">
-                    <img class="d-block w-100" [src]="item">
+                    <img class="d-block w-100" [src]="item" style="position: relative;">
+                    <i class="bi bi-arrows-angle-expand" (click)="expandImg(item)" ></i>
                 </div>
             </div>
             <a class="carousel-control-prev" [href]="'#slider'+id" role="button" data-slide="prev">
@@ -119,6 +120,9 @@
     <div class="mb-3" *ngIf="property?.address">
         <p class="overview-title">Address</p>
         <p class="description">
+            <span class="me-1" *ngIf="property.address?.address_Line">{{
+                property.address.address_Line + ", "
+                }}</span>
             <span class="me-1" *ngIf="property.address?.city">{{
                 property.address.city + ", "
                 }}</span>
@@ -130,6 +134,12 @@
                 }}</span>
         </p>
     </div>
+    <div class="mb-3" *ngIf="property?.coordinates">
+        <p class="overview-title">Latitude : <span class="description">{{property.coordinates.latitude}}</span> </p>
+        </div>
+        <div class="mb-3" *ngIf="property?.coordinates">
+            <p class="overview-title"> Longitude :  <span class="description">{{property.coordinates.longitude}}</span></p>
+            </div>
     <div class="mb-3" *ngIf="property?.goodToKnow?.length > 0">
         <p class="overview-title">Good to know</p>
         <p class="description">{{property.description}}</p>
@@ -157,10 +167,13 @@
             <div class="deal-card" *ngIf="item.deal">
                 <div class="deal-room-section">
                     <p class="deal-title mb-0">{{item.roomName}}</p>
+                    <p class="deal-title mb-0">Rate Plan: {{item.ratePlanName}}</p>
+
                 </div>
                 <div class="deal-top-section">
                     <p class="deal-title">Deal Name: {{item.deal.title}}</p>
                     <p class="deal-desc">Description: {{item.deal.description}}</p>
+
                 </div>
                 <div class="deal-bottom-section">
                     <p class="deal-value">Value:

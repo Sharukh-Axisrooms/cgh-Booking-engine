@@ -22,7 +22,7 @@ export class SearchService {
   }
 
   private getRooms(params: any): Observable<any> {
-    return this.http.get<any>(`https://preprod2.axisrooms.com/api/be/rooms`, {
+    return this.http.get<any>(`${BASE_URL}api/be/rooms`, {
       params: params,
       headers: getDefaultHeaders(),
     });

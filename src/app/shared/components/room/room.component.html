@@ -12,7 +12,9 @@
                     <div class="carousel-inner">
                         <div class="carousel-item" *ngFor="let item of room.images;let i=index"
                             [ngClass]="i == 0 ? 'active' : ''" [id]="'slide'+ i">
-                            <img class="d-block w-100" [src]="item">
+                            <img class="d-block w-100" [src]="item"  style="position: relative;">
+                          
+                            <i class="bi bi-arrows-angle-expand" (click)="expandImg(item)" ></i>
                         </div>
                     </div>
                     <a class="carousel-control-prev" [href]="'#slider'+ id" role="button" data-slide="prev">
@@ -23,6 +25,11 @@
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                         <span class="sr-only">Next</span>
                     </a>
+
+
+
+
+        
                 </div>
             </div>
             <div class="room-header-text-col">
@@ -39,13 +46,13 @@
                             </span>
                         </p>
                     </ng-container>
-                    <ng-container *ngIf="room.inclusions?.length > 0">
+                    <ng-container *ngIf="room.inclusions">
                         <p class="room-title mb-1">Inclusions:</p>
-                        <p>
-                            <span *ngFor="let item of room.inclusions; let last=last">
+                        <p>{{room.inclusions[0]}}
+                            <!-- <span *ngFor="let item of room.inclusions; let last=last">
                                 {{item}}
                                 {{!last ? ', ' : ''}}
-                            </span>
+                            </span> -->
                         </p>
                     </ng-container>
                     <ng-container *ngIf="room.cancellationPolicy?.length > 0">

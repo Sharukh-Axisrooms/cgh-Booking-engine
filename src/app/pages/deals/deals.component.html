@@ -26,7 +26,7 @@
         <div class="hotels-container">
             <div class="hotel-row" *ngFor="let item of item.products;">
                 <p class="m-0 hotel-title">{{item.name}}</p>
-                <button class="btn-main">View Details</button>
+                <button class="btn-main" (click)="search(item.id)">View Details</button>
             </div>
         </div>
     </div>

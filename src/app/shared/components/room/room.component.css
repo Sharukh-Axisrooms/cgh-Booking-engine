@@ -119,3 +119,22 @@
   flex-wrap: wrap;
   margin-left: -5px;
 }
+
+
+img{
+  cursor: pointer;
+}
+
+.bi-arrows-angle-expand{
+  position: absolute;
+  font-size: 11px;
+  top: 8px;
+  left: 174px;
+  cursor: pointer;
+  z-index: 200;
+  background-color: antiquewhite;
+  padding: 4px;
+  border-radius: 3px;
+}
+
+

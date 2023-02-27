@@ -3,6 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { BOOKING_ENGINE_ID } from 'src/app/shared/constants/url.constants';
 import { BookingService } from 'src/app/services/booking.service';
+import { ImagePopupComponent } from '../image-popup/image-popup.component';
+import { MatDialog } from '@angular/material/dialog';
 
 export type RoomButtonActionType =
   | 'searchComponent-newBooking'
@@ -49,7 +51,8 @@ export class PackageComponent implements OnInit, OnDestroy {
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private bookingService: BookingService
+    private bookingService: BookingService,
+    private dialog:MatDialog
   ) { }
 
   ngOnInit(): void {
@@ -124,5 +127,17 @@ export class PackageComponent implements OnInit, OnDestroy {
 
 
     console.log(room, "hiii")
+  }
+
+  expandImg(img: any) {
+    const dialogRef = this.dialog.open(ImagePopupComponent, {
+      data: img,
+      width: '600px',
+      height: '500px'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
   }
 }

@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
 import { DealsService } from 'src/app/services/deals.service';
@@ -17,6 +17,7 @@ export class DealsComponent implements OnInit, OnDestroy {
   constructor(
     private dealsService: DealsService,
     private activatedRoute: ActivatedRoute,
+    private router:Router
   ) {
     this.activateRouteSubscription$ = this.activatedRoute.queryParams
       .pipe(debounceTime(500))
@@ -44,4 +45,11 @@ export class DealsComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.activateRouteSubscription$.unsubscribe();
   }
-}
+
+  search(id: any){
+    let searchParams: any 
+    searchParams['productId'] = id;
+    // this.dialogRef.close()
+    this.router.navigate(['/search'], { queryParams: searchParams })
+  }
+  }
