@@ -8,6 +8,8 @@ import { SearchComponent } from './pages/search/search.component';
 const routes: Routes = [
   { path: '', redirectTo: 'search', pathMatch:'full'}, 
   { path: 'search', component: SearchComponent },
+  { path: 'search_page', component: SearchComponent },
+
   { path: 'book', component: BookComponent },
   { path: 'deals', component: DealsComponent },
   {path: 'cart', component: OngoingBookingsComponent}

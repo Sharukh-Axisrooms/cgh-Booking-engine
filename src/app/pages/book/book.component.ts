@@ -10,6 +10,9 @@ import { NgxSpinnerService } from 'ngx-spinner';
 import { PaymentService } from 'src/app/services/payment.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { SearchService } from 'src/app/services/search.service';
+import { Router } from '@angular/router';
+import { BOOKING_ENGINE_ID } from 'src/app/shared/constants/url.constants';
+// import { Router } from 'express';
 
 export enum StepperType {
   none,
@@ -42,7 +45,8 @@ export class BookComponent implements OnInit {
     private searchService: SearchService,
     private spinner: NgxSpinnerService,
     private paymentService: PaymentService,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private router: Router
   ) {
     this.currBookingItem$ = this.bookingService.currBookingItem$
     this.bookingCart$ = this.bookingService.bookingCart$;
@@ -124,8 +128,22 @@ export class BookComponent implements OnInit {
   }
 
   goBack() {
+
     if (this.stepper === this.eStepper.addons) {
-      history.back();
+      // history.back();
+      let searchParams: any = {
+        bookingEngineId: BOOKING_ENGINE_ID,
+      };
+      this.currBookingItem$.subscribe(e => {
+        searchParams['productId'] = e?.hotelId;
+        searchParams['checkIn'] = e?.checkIn;
+        searchParams['checkOut'] = e?.checkOut;
+        searchParams['paxInfo'] = e?.paxInfo;
+        searchParams['searchType'] = 'hotel';
+      })
+      this.router.navigate(['/search'], { queryParams: searchParams })
+
+
     } else if (this.stepper === this.eStepper.personalDetails) {
       this.stepper = this.eStepper.addons;
     } else if (this.stepper === this.eStepper.payment) {

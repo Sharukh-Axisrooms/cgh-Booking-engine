@@ -159,6 +159,7 @@ console.log( this.currBookingItem$)
       this.bookingCartReflect.HOOKS.BOOKING_CART,
       bookingCart
     );
+    this.router.navigate(['/book']);
   }
 
   removeCurrentBookingItemFromList(i:any) {
@@ -174,7 +175,7 @@ console.log( this.currBookingItem$)
       );
     }
 
-    this.router.routeReuseStrategy.shouldReuseRoute = () => true;
+    // this.router.routeReuseStrategy.shouldReuseRoute = () => true;
 
 
   }

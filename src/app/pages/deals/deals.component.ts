@@ -1,8 +1,10 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
 import { DealsService } from 'src/app/services/deals.service';
+import { DealDetailsComponent } from './deal-details/deal-details.component';
 
 @Component({
   selector: 'app-deals',
@@ -17,7 +19,8 @@ export class DealsComponent implements OnInit, OnDestroy {
   constructor(
     private dealsService: DealsService,
     private activatedRoute: ActivatedRoute,
-    private router:Router
+    private router:Router,
+    private dialog:MatDialog
   ) {
     this.activateRouteSubscription$ = this.activatedRoute.queryParams
       .pipe(debounceTime(500))
@@ -46,10 +49,15 @@ export class DealsComponent implements OnInit, OnDestroy {
     this.activateRouteSubscription$.unsubscribe();
   }
 
-  search(id: any){
-    let searchParams: any 
-    searchParams['productId'] = id;
-    // this.dialogRef.close()
-    this.router.navigate(['/search'], { queryParams: searchParams })
+
+
+  openDialog(e: any): void {
+    const dialogRef = this.dialog.open(DealDetailsComponent, {
+      data: e,
+    });
+
+    dialogRef.afterClosed().subscribe((result: any) => {
+      console.log('The dialog was closed');
+    });
   }
   }

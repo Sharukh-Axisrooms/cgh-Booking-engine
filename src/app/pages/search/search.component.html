@@ -162,7 +162,7 @@
             <hr>
             <ng-container *ngIf="searchResponse?.Hotel_Details?.length > 0; else noPackageTemplate">
                 <div *ngFor="let property of searchResponse?.Hotel_Details; let i = index">
-                    <app-package [property]="property" [searchId]="searchId" [id]="i"
+                    <app-package [property]="property" [searchId]="searchId" [id_num]="i"
                         [buttonActionType]="'searchComponent-newBooking'"></app-package>
                 </div>
             </ng-container>

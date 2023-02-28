@@ -202,3 +202,14 @@ hr {
   padding: 9px;
   cursor: pointer;
 }
+.bi-arrows-angle-expand{
+  position: absolute;
+  font-size: 11px;
+  top: 30px;
+  left: 281px;
+  cursor: pointer;
+  z-index: 200;
+  background-color: antiquewhite;
+  padding: 4px 5px;
+  border-radius: 3px;
+}

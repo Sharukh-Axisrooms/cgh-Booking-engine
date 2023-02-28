@@ -85,7 +85,7 @@ export class SearchComponent implements OnInit, OnDestroy {
 
 
     this.activateRouteSubscription$ = this.activatedRoute.queryParams.pipe(
-      debounceTime(500)
+      debounceTime(300)
     ).subscribe(
       async (queryParams) => {
         this.searchForm.controls.checkIn.setValue(queryParams['checkIn']);

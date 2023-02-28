@@ -64,10 +64,11 @@
             <div class="col-6" *ngIf="openAddon == true">
                 <div class="card-wrapper">
                     <i class="bi bi-x-circle-fill" (click)="openAddon = false"></i>
-                    <img class="w-100" style="    max-height: 40vh;
+                    <img class="w-100" style="    max-height: 40vh; position: relative;
                 object-fit: cover;
-                object-position: center;cursor: pointer;" [src]="addonDetail.policy_image_url" alt=""
-                        (click)="expandImg(addonDetail.policy_image_url)">
+                object-position: center;" [src]="addonDetail.policy_image_url" alt=""
+                      >
+                        <i class="bi bi-arrows-angle-expand"   (click)="expandImg(addonDetail.policy_image_url)" ></i>
                     <div class="content">
                         <p class="addon-title">{{addonDetail.policy_name}}</p>
                         <p class="desc">{{addonDetail.policy_description}}</p>

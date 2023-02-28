@@ -39,6 +39,7 @@ import { RoomComponent } from './shared/components/room/room.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { NgxPaginationModule } from "ngx-pagination";
 import { ImagePopupComponent } from './shared/components/image-popup/image-popup.component';
+import { DealDetailsComponent } from './pages/deals/deal-details/deal-details.component';
 
 
 @NgModule({
@@ -62,7 +63,8 @@ import { ImagePopupComponent } from './shared/components/image-popup/image-popup
     RoomComponent,
     DealsComponent,
     BookingNotificationComponent,
-    ImagePopupComponent
+    ImagePopupComponent,
+    DealDetailsComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

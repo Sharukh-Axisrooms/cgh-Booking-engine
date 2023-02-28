@@ -121,9 +121,7 @@
 }
 
 
-img{
-  cursor: pointer;
-}
+
 
 .bi-arrows-angle-expand{
   position: absolute;
@@ -133,7 +131,7 @@ img{
   cursor: pointer;
   z-index: 200;
   background-color: antiquewhite;
-  padding: 4px;
+  padding: 4px 5px;
   border-radius: 3px;
 }
 

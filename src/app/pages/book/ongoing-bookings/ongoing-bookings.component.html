@@ -12,6 +12,6 @@
             [buttonActionType]="'ongoingComponent-proceed'"></app-package>
     </div>
 
-    <app-no-booking class="w-100" *ngIf="bookingCart.bookingItems.length == 0">
+    <app-no-booking class="w-100" *ngIf="bookingCart.bookingItems.length == 0" (btnEvent)="roomBtnEvent()">
         </app-no-booking>
 </div>
