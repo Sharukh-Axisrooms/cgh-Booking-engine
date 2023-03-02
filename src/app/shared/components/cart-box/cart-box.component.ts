@@ -43,4 +43,29 @@ export class CartBoxComponent implements OnInit {
 
     console.log(this.bookingItems, this.bookingService)
   }
+
+  getRoomName(roomList: any, roomID: any) {
+    let roomName
+    roomList.forEach((element: any) => {
+      if (element.roomId == roomID) {
+        roomName = element.roomName;
+      }
+    });
+    console.log("@@@", roomName)
+
+    return roomName;
+
+  }
+
+  getRatePlan(roomList: any, roomID: any){
+    let ratePlan
+    roomList.forEach((element: any) => {
+      if (element.roomId == roomID) {
+        ratePlan = element.ratePlanName;
+      }
+    });
+    console.log("@@@", ratePlan)
+
+    return ratePlan;
+  }
 }

@@ -5,6 +5,7 @@ export interface BookingCart {
 }
 
 export interface BookingItem {
+    property:any
     addons?: Addon[],
     addonTotalPrice:number,
     prevUrl?: string,

@@ -127,6 +127,7 @@ console.log( this.currBookingItem$)
       },
     };
     let bookingItem: BookingItem = {
+      property: property,
       addons: [],
       addonTotalPrice: 0,
       searchId: searchId,

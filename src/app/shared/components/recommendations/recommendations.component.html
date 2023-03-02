@@ -9,12 +9,15 @@
                 onError="this.src='../../../../assets/images/no-image-found.png',style.objectFit='contain'" 
                 alt=""> -->
 
-            <div id="carouselExampleControls" class="carousel slide" [id]="'slider'+ id" data-ride="carousel" >
+            <div id="carouselExampleControls" class="carousel slide" [id]="'slider'+ id" data-ride="carousel">
                 <div class="carousel-inner">
-                    <div class="carousel-item" *ngFor="let item of item.images;let i=index"
-                        [ngClass]="i == 0 ? 'active' : ''" [id]="'slide'+ i">
-                        <img class="d-block w-100" [src]="item">
-                    </div>
+                    <ng-container *ngFor="let item of item.images;let i=index">
+                        <div class="carousel-item" *ngIf="i>=1" [ngClass]="i == 1 ? 'active' : ''" [id]="'slide'+ i">
+                            <img class="d-block w-100" [src]="item">
+                        </div>
+                    </ng-container>
+
+
                 </div>
                 <a class="carousel-control-prev" [href]="'#slider'+ id" role="button" data-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -26,7 +29,8 @@
                 </a>
             </div>
             <div class="image-overlay">
-                <p class="promotions-tagline"  (click)="viewRecommendationsForSpecific(item.hotel_id)">  STAY AT {{item.hotel_name}} @
+                <p class="promotions-tagline" (click)="viewRecommendationsForSpecific(item.hotel_id)"> STAY AT
+                    {{item.hotel_name}} @
                     {{item.currency}}{{item.price.discounted ? ( item.price.actual-item.price.discounted) :
                     item.price.actual}} PER NIGHT
                 </p>
