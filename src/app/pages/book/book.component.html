@@ -16,37 +16,47 @@
 
     <ng-template #elseBookingTemplate>
         <!-- <ng-container *ngIf="streams.currBookingItem"> -->
-            <app-stepper [stepper]="stepper"></app-stepper>
+        <app-stepper [stepper]="stepper"></app-stepper>
 
-            <section class="contents-section">
-                <div class="contents-wrapper" [ngStyle]="stepper === eStepper.confirmation ? 
+        <section class="contents-section">
+            <div class="contents-wrapper" [ngStyle]="stepper === eStepper.confirmation ? 
                     {'max-width': '1050px'} : {'max-width': '1150px'}">
-                    <div class="content-col">
-                        <div style="min-height: 480px;">
-                            <app-addons *ngIf="stepper === eStepper.addons">
-                            </app-addons>
-                            <app-personal-details *ngIf="stepper === eStepper.personalDetails">
-                            </app-personal-details>
+                <div class="content-col">
+                    <div style="min-height: 480px;">
+                        <app-addons *ngIf="stepper === eStepper.addons">
+                        </app-addons>
+                        <app-personal-details *ngIf="stepper === eStepper.personalDetails">
+                        </app-personal-details>
 
-                         
-                        </div>
 
-                        <div class="btn-row">
-                            <button class="btn-main" (click)="goBack()">
-                                {{ stepper != eStepper.confirmation ? 'BACK' : 'Download PDF'}}
-                            </button>
-                            <button class="btn-main" (click)="onNext()">
-                                {{ stepper != eStepper.confirmation ? 'CONTINUE YOUR HOLIDAY WITH CGH EARTH' : 'Continue browsing'}}
-                            </button>
-                        </div>
                     </div>
 
-                    <div class="cart-col" *ngIf="stepper != eStepper.confirmation">
-                        <p class="title">BOOKING DETAILS</p>
-                        <app-cart-box></app-cart-box>
+                    <div class="btn-row">
+                        <button class="btn-main" (click)="goBack()">
+                            {{ stepper != eStepper.confirmation ? 'BACK' : 'Download PDF'}}
+                        </button>
+                        <ng-container *ngIf="stepper != eStepper.addons">
+                            <button class="btn-main" (click)="onNext()"  *ngIf="stepper == eStepper.confirmation">
+                                CONTINUE
+                            </button>
+                        </ng-container>
+                        <button *ngIf="stepper == eStepper.addons" class="btn-main" (click)="onNext()">
+                            PROCEED
+                        </button>
+                        <button *ngIf="stepper == eStepper.personalDetails" class="btn-main" (click)="onNext()">
+                            CONTINUE&nbsp; YOUR&nbsp; HOLIDAY &nbsp;WITH&nbsp; CGH&nbsp; EARTH
+                        </button>
+
+
                     </div>
                 </div>
-            </section>
+
+                <div class="cart-col" *ngIf="stepper != eStepper.confirmation">
+                    <p class="title">BOOKING DETAILS</p>
+                    <app-cart-box></app-cart-box>
+                </div>
+            </div>
+        </section>
         <!-- </ng-container> -->
 
         <!-- <app-no-booking *ngIf="!streams.currBookingItem && 

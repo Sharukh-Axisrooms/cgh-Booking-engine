@@ -79,3 +79,8 @@
   background: none;
   border: 1px dashed;
 }
+
+.btn-main{
+  max-width: 270px !important;
+  word-spacing: 1px !important;
+}

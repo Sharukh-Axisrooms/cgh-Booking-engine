@@ -86,7 +86,7 @@ export class BookComponent implements OnInit {
   }
 
   onNext() {
-
+console.log(this.stepper, this.eStepper.payment,  this.eStepper.personalDetails)
     if (this.stepper === this.eStepper.addons) {
 
       this.stepper = this.eStepper.personalDetails;
@@ -97,15 +97,15 @@ export class BookComponent implements OnInit {
         this.personalDetailsForm =
           this.personalDetailsComponent.personalDetailsForm;
         // this.stepper = this.eStepper.addons;
+     
         this.paymentService.createOrderAndMakePayment(
           this.bookingService.currBookingItemValue, this.personalDetailsForm.value
         );
-
       } else {
         this.personalDetailsComponent.personalDetailsForm.markAllAsTouched();
         this.snackBar.open('Please complete the form', '', { duration: 2000 });
       }
-    }
+    } 
 
 
 
