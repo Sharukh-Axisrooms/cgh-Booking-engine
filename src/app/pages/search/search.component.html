@@ -72,11 +72,12 @@
                 <p class="field-heading">Check in</p>
                 <input class="field-content date-plchldr" formControlName="checkIn" placeholder="-- / -- / ----"
                     readonly>
+            <i class="bi bi-calendar4-week icon-style"></i>
+
             </div>
             <mat-card class="dropdown-card date-card pt-0" *ngIf="showDropdown === dropdownType.checkin">
                 <ng-container *ngTemplateOutlet="matCalendar"></ng-container>
             </mat-card>
-            <i class="bi bi-calendar4-week icon-style"></i>
             <p class="hotel-field-warning" *ngIf="searchForm.controls.checkIn.invalid && 
                 (searchForm.controls.checkIn.dirty || searchForm.controls.checkIn.touched)
                 && showFieldWarnings === dropdownType.checkin">Please add checkin</p>
@@ -87,11 +88,12 @@
                 <p class="field-heading">Check out</p>
                 <input class="field-content date-plchldr" formControlName="checkOut" placeholder="-- / -- / ----"
                     readonly>
+            <i class="bi bi-calendar4-week icon-style"></i>
+
             </div>
             <mat-card class="dropdown-card date-card right-card pt-0" *ngIf="showDropdown === dropdownType.checkout">
                 <ng-container *ngTemplateOutlet="matCalendar"></ng-container>
             </mat-card>
-            <i class="bi bi-calendar4-week icon-style"></i>
             <p class="hotel-field-warning" *ngIf="searchForm.controls.checkOut.invalid && 
                 (searchForm.controls.checkOut.dirty || searchForm.controls.checkOut.touched)
                 && showFieldWarnings === dropdownType.checkout">Please add checkout</p>

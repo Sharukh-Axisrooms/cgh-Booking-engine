@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { SearchService } from 'src/app/services/search.service';
+import { BOOKING_ENGINE_ID } from '../../constants/url.constants';
 import { ImagePopupComponent } from '../image-popup/image-popup.component';
 
 @Component({
@@ -21,6 +22,22 @@ export class RoomComponent implements OnInit {
 
   ngOnInit(): void {
     console.log(this.room, this.property)
+
+    // this.getPrices()
+
+  }
+
+
+  getPrices(){
+    let params: any = {};
+    params['bookingEngineId'] = BOOKING_ENGINE_ID;
+    params['isDorm'] =false;
+    params['productId'] =this.property.hotel_id;
+    // params['paxInfo'] =this.property.hotel_id;
+    // params['checkIn'] =this.property.check_in;
+    // params['checkOut'] =this.property.check_out;
+
+    this.searchService.getRoomPrices(params).subscribe(res=>{})
 
   }
 

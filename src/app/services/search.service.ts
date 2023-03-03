@@ -28,7 +28,12 @@ export class SearchService {
     });
   }
 
- 
+ getRoomPrices(params: any){
+  return this.http.get<any>(`${BASE_URL}api/be/finalPrices`, {
+    params: params,
+    // headers: getDefaultHeaders(),
+  });
+ }
 
  
 
