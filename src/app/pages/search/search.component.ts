@@ -250,7 +250,6 @@ export class SearchComponent implements OnInit, OnDestroy {
 
     selectLocation(option: any) {
       // this.searchForm.controls.status = 'VALID';
-      console.log(option,"@@@@@")
     if ((option.type = 'city')) {
       this.searchForm.controls.cityId.setValue(option.cityId);
     }
@@ -389,6 +388,7 @@ export class SearchComponent implements OnInit, OnDestroy {
     if (this.searchForm.valid) {
       this.spinner.show();
       let searchParams: any = this.getSearchParams();
+      console.log(searchParams,"searchparams")
       this.searchService.searchRooms(searchParams).subscribe((res) => {
         this.searchResponse = res;
 
@@ -425,8 +425,8 @@ export class SearchComponent implements OnInit, OnDestroy {
       if (this.searchForm.controls.cityId.value?.length > 0) {
         searchParams.cityId = this.searchForm.controls.cityId.value;
       }
-      searchParams.stateId = this.searchForm.controls.stateId.value;
-      searchParams.countryId = this.searchForm.controls.countryId.value;
+      // searchParams.stateId = this.searchForm.controls.stateId.value;
+      // searchParams.countryId = this.searchForm.controls.countryId.value;
     }
     if (this.searchForm.controls.checkIn.value?.length > 0) {
       searchParams.checkIn = this.searchForm.controls.checkIn.value;

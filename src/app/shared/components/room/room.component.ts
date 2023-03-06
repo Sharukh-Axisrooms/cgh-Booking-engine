@@ -33,7 +33,7 @@ export class RoomComponent implements OnInit {
   ngOnInit(): void {
     console.log(this.room, this.property)
 
-    this.getPrices()
+    // this.getPrices()
 
   }
 
